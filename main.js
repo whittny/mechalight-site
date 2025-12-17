@@ -78,6 +78,7 @@ function applyLang(){
     const key = el.getAttribute("data-i18n");
     if(dict[lang][key]) el.textContent = dict[lang][key];
   });
+  renderWorks();
 }
 
 $("#langBtn").addEventListener("click", ()=>{
@@ -86,6 +87,39 @@ $("#langBtn").addEventListener("click", ()=>{
 });
 
 applyLang();
+
+let worksData = { items: [] };
+
+async function loadWorks(){
+  try{
+    const res = await fetch("./works.json", { cache: "no-store" });
+    if(!res.ok) throw new Error("Failed to load works.json");
+    worksData = await res.json();
+  }catch(e){
+    console.error(e);
+    worksData = { items: [] };
+  }
+  renderWorks();
+}
+
+function renderWorks(){
+  const grid = document.getElementById("worksGrid");
+  if(!grid) return;
+
+  const items = worksData.items || [];
+  grid.innerHTML = items.map(item => {
+    const subText = item.sub?.[lang] ?? "";
+    const href = item.url || "#";
+    const target = href.startsWith("#") ? "" : ' target="_blank" rel="noopener"';
+    return `
+      <a class="work" href="${href}"${target}>
+        <div class="work-tag">${item.tag}</div>
+        <div class="work-title">${item.title}</div>
+        <div class="work-sub">${subText}</div>
+      </a>
+    `;
+  }).join("");
+}
 
 // Interactive card
 let locked = true;
@@ -202,5 +236,6 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
     }
   });
 });
+
 
 
