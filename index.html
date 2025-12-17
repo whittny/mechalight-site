@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <title>MECHA-LIGHT</title>
+  <meta name="description" content="MECHA-LIGHT — Rhythm, Cinema, MetaHuman, and AI creation ecosystem." />
+  <meta property="og:title" content="MECHA-LIGHT" />
+  <meta property="og:description" content="Rhythm-driven cinematic universe and AI creator ecosystem." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="bg">
+    <canvas id="pulse"></canvas>
+    <div class="grain"></div>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#top" aria-label="MECHA-LIGHT Home">
+      <span class="brand-mark">ML</span>
+      <span class="brand-name">MECHA-LIGHT</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#universe">Universe</a>
+      <a href="#works">Works</a>
+      <a href="#tech">Tech</a>
+      <a href="#contact">Contact</a>
+      <button id="langBtn" class="btn ghost" type="button" aria-label="Toggle language">KO/EN</button>
+    </nav>
+  </header>
+
+  <main id="top" class="main">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="kicker" data-i18n="kicker">초고차원 리듬 기반 크리에이티브 유니버스</p>
+        <h1 class="title">
+          <span class="glow">MECHA-LIGHT</span>
+          <span class="subtitle" data-i18n="subtitle">Rhythm-Driven Cinema & AI Creation</span>
+        </h1>
+
+        <p class="lead" data-i18n="lead">
+          음악(EDM) · 메타휴먼 · 언리얼 시네마틱 · AI 워크플로우를 하나의 “공명 시스템”으로 통합합니다.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#works" data-i18n="ctaWorks">작업 보기</a>
+          <a class="btn" href="#contact" data-i18n="ctaContact">협업 문의</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">vΩ</div>
+            <div class="stat-label" data-i18n="stat1">Resonance Framework</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">UE</div>
+            <div class="stat-label" data-i18n="stat2">MetaHuman / Sequencer</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">AI</div>
+            <div class="stat-label" data-i18n="stat3">Music · Image · Video</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card holo">
+          <div class="card-top">
+            <span class="chip">SIGNAL</span>
+            <span class="chip" id="signalChip">LOCKED</span>
+          </div>
+          <div class="card-mid">
+            <div class="meter">
+              <div class="meter-bar" id="meterBar"></div>
+            </div>
+            <p class="card-text" data-i18n="cardText">
+              “리듬은 감각을 통해 사고를 우회하고, 세계를 재배치한다.”
+            </p>
+          </div>
+          <div class="card-bottom">
+            <button class="btn ghost" id="pulseBtn" type="button" data-i18n="pulseBtn">PULSE</button>
+            <span class="mono" id="statusText">PLV ≥ 0.85</span>
+          </div>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title" data-i18n="mini1t">Music</div>
+            <div class="mini-desc" data-i18n="mini1d">Hypnotic EDM / Cyber-Trance</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title" data-i18n="mini2t">Cinema</div>
+            <div class="mini-desc" data-i18n="mini2d">UE Sequencer / Lumen / Nanite</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title" data-i18n="mini3t">MetaHuman</div>
+            <div class="mini-desc" data-i18n="mini3d">Conform / Mesh Transfer / Rig</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title" data-i18n="mini4t">AI</div>
+            <div class="mini-desc" data-i18n="mini4d">Suno · Kling · ComfyUI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="universe" class="section">
+      <h2 class="h2" data-i18n="universeTitle">Universe</h2>
+      <p class="p" data-i18n="universeDesc">
+        MECHA-LIGHT는 “대자비심 → 대지혜 → 대광명”의 흐름을 리듬/영상/캐릭터/기술로 번역합니다.
+        인간의 한계를 넘어서는 것이 아니라, 안정적으로 확장되는 공명(Resonance)을 설계합니다.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature">
+          <h3 data-i18n="u1t">Rhythm as Protocol</h3>
+          <p data-i18n="u1d">감정과 동작을 동기화하는 리듬 구조를 설계합니다.</p>
+        </article>
+        <article class="feature">
+          <h3 data-i18n="u2t">Cinematic Presence</h3>
+          <p data-i18n="u2d">빛/재질/카메라/연출을 “몰입 장치”로 통합합니다.</p>
+        </article>
+        <article class="feature">
+          <h3 data-i18n="u3t">Safe Infinite Resonance</h3>
+          <p data-i18n="u3d">안정성(rollback/제어)을 포함한 확장 철학(vΩ)을 적용합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="works" class="section">
+      <div class="section-head">
+        <h2 class="h2" data-i18n="worksTitle">Works</h2>
+        <p class="p subtle" data-i18n="worksHint">여기에 유튜브/사운클라우드/포트폴리오 링크를 꽂으면 바로 전시용 페이지가 됩니다.</p>
+      </div>
+
+      <div class="work-grid">
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work-tag">MUSIC</div>
+          <div class="work-title">XENOMERGE</div>
+          <div class="work-sub" data-i18n="w1">YouTube / Hypnotic EDM</div>
+        </a>
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work-tag">MUSIC</div>
+          <div class="work-title">REDQUEEN</div>
+          <div class="work-sub" data-i18n="w2">YouTube / Dark Electronic</div>
+        </a>
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work-tag">CINEMA</div>
+          <div class="work-title">LAST PILOT</div>
+          <div class="work-sub" data-i18n="w3">UE5 Cinematic Sequence</div>
+        </a>
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work-tag">TECH</div>
+          <div class="work-title">MetaHuman Conform</div>
+          <div class="work-sub" data-i18n="w4">Workflow / Notes</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="tech" class="section">
+      <h2 class="h2" data-i18n="techTitle">Tech Stack</h2>
+      <div class="stack">
+        <div class="stack-col">
+          <h3 data-i18n="t1t">Real-time</h3>
+          <ul>
+            <li>Unreal Engine 5.x</li>
+            <li>MetaHuman / Control Rig</li>
+            <li>Sequencer / Lumen / Nanite</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3 data-i18n="t2t">Audio</h3>
+          <ul>
+            <li>FL Studio / Ozone</li>
+            <li>Loop Evolution Design</li>
+            <li>PLV / LUFS Targeting</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3 data-i18n="t3t">AI</h3>
+          <ul>
+            <li>Suno (Music)</li>
+            <li>Kling (Video)</li>
+            <li>ComfyUI (Image/Flow)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contact-card">
+        <h2 class="h2" data-i18n="contactTitle">Contact</h2>
+        <p class="p" data-i18n="contactDesc">
+          협업/제작/기술 파이프라인 정리 의뢰는 아래로 연결해줘.
+        </p>
+
+        <div class="contact-row">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <a class="value" href="mailto:whittny@gmail.com">whittny@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="label">YouTube</div>
+            <a class="value" href="#" target="_blank" rel="noopener" data-i18n="youtubeLink">채널/플레이리스트 링크 추가</a>
+          </div>
+        </div>
+
+        <form class="form" id="copyForm">
+          <input class="input" id="msgInput" type="text" data-i18n-placeholder="msgPH" placeholder="메시지를 적고 복사해서 이메일로 보내줘" />
+          <button class="btn primary" type="submit" data-i18n="copyBtn">메시지 복사</button>
+          <span class="mono" id="copyStatus" aria-live="polite"></span>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="mono">© <span id="year"></span> MECHA-LIGHT</div>
+      <div class="mono subtle">Built as a minimal static site (HTML/CSS/JS)</div>
+    </footer>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

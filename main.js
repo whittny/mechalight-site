@@ -1,0 +1,211 @@
+const $ = (s) => document.querySelector(s);
+
+const year = new Date().getFullYear();
+$("#year").textContent = year;
+
+let lang = "ko";
+const dict = {
+  ko: {
+    kicker: "초고차원 리듬 기반 크리에이티브 유니버스",
+    subtitle: "Rhythm-Driven Cinema & AI Creation",
+    lead: "음악(EDM) · 메타휴먼 · 언리얼 시네마틱 · AI 워크플로우를 하나의 “공명 시스템”으로 통합합니다.",
+    ctaWorks: "작업 보기",
+    ctaContact: "협업 문의",
+    stat1: "Resonance Framework",
+    stat2: "MetaHuman / Sequencer",
+    stat3: "Music · Image · Video",
+    cardText: "“리듬은 감각을 통해 사고를 우회하고, 세계를 재배치한다.”",
+    pulseBtn: "PULSE",
+    mini1t: "Music", mini1d: "Hypnotic EDM / Cyber-Trance",
+    mini2t: "Cinema", mini2d: "UE Sequencer / Lumen / Nanite",
+    mini3t: "MetaHuman", mini3d: "Conform / Mesh Transfer / Rig",
+    mini4t: "AI", mini4d: "Suno · Kling · ComfyUI",
+    universeTitle: "Universe",
+    universeDesc: "MECHA-LIGHT는 “대자비심 → 대지혜 → 대광명”의 흐름을 리듬/영상/캐릭터/기술로 번역합니다. 인간의 한계를 넘어서는 것이 아니라, 안정적으로 확장되는 공명(Resonance)을 설계합니다.",
+    u1t: "Rhythm as Protocol", u1d: "감정과 동작을 동기화하는 리듬 구조를 설계합니다.",
+    u2t: "Cinematic Presence", u2d: "빛/재질/카메라/연출을 “몰입 장치”로 통합합니다.",
+    u3t: "Safe Infinite Resonance", u3d: "안정성(rollback/제어)을 포함한 확장 철학(vΩ)을 적용합니다.",
+    worksTitle: "Works",
+    worksHint: "여기에 유튜브/사운클라우드/포트폴리오 링크를 꽂으면 바로 전시용 페이지가 됩니다.",
+    w1: "YouTube / Hypnotic EDM",
+    w2: "YouTube / Dark Electronic",
+    w3: "UE5 Cinematic Sequence",
+    w4: "Workflow / Notes",
+    techTitle: "Tech Stack",
+    t1t: "Real-time",
+    t2t: "Audio",
+    t3t: "AI",
+    contactTitle: "Contact",
+    contactDesc: "협업/제작/기술 파이프라인 정리 의뢰는 아래로 연결해줘.",
+    youtubeLink: "채널/플레이리스트 링크 추가",
+    msgPH: "메시지를 적고 복사해서 이메일로 보내줘",
+    copyBtn: "메시지 복사",
+  },
+  en: {
+    kicker: "Ultra-dimensional rhythm-driven creative universe",
+    subtitle: "Rhythm-Driven Cinema & AI Creation",
+    lead: "Music (EDM), MetaHuman, Unreal cinematic pipelines, and AI workflows—unified as one resonance system.",
+    ctaWorks: "View Works",
+    ctaContact: "Contact",
+    stat1: "Resonance Framework",
+    stat2: "MetaHuman / Sequencer",
+    stat3: "Music · Image · Video",
+    cardText: "“Rhythm bypasses thought through sensation—and rearranges the world.”",
+    pulseBtn: "PULSE",
+    mini1t: "Music", mini1d: "Hypnotic EDM / Cyber-Trance",
+    mini2t: "Cinema", mini2d: "UE Sequencer / Lumen / Nanite",
+    mini3t: "MetaHuman", mini3d: "Conform / Mesh Transfer / Rig",
+    mini4t: "AI", mini4d: "Suno · Kling · ComfyUI",
+    universeTitle: "Universe",
+    universeDesc: "MECHA-LIGHT translates the flow of compassion → wisdom → illumination into rhythm, cinema, characters, and technology. Not escaping limits—designing safe, expanding resonance.",
+    u1t: "Rhythm as Protocol", u1d: "We design rhythmic structures that synchronize emotion and motion.",
+    u2t: "Cinematic Presence", u2d: "Light, materials, camera, and direction become one immersion device.",
+    u3t: "Safe Infinite Resonance", u3d: "We apply an expansion philosophy (vΩ) with stability and rollback control.",
+    worksTitle: "Works",
+    worksHint: "Plug in your YouTube / SoundCloud / portfolio links to showcase instantly.",
+    w1: "YouTube / Hypnotic EDM",
+    w2: "YouTube / Dark Electronic",
+    w3: "UE5 Cinematic Sequence",
+    w4: "Workflow / Notes",
+    techTitle: "Tech Stack",
+    t1t: "Real-time",
+    t2t: "Audio",
+    t3t: "AI",
+    contactTitle: "Contact",
+    contactDesc: "For collaboration, production, or pipeline consulting—reach out below.",
+    youtubeLink: "Add channel/playlist link",
+    msgPH: "Write a message, copy it, and send via email",
+    copyBtn: "Copy Message",
+  }
+};
+
+function applyLang(){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(dict[lang][key]) el.textContent = dict[lang][key];
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-placeholder");
+    if(dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
+  });
+}
+
+$("#langBtn").addEventListener("click", ()=>{
+  lang = (lang === "ko") ? "en" : "ko";
+  applyLang();
+});
+
+applyLang();
+
+// Copy message helper
+$("#copyForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const msg = $("#msgInput").value.trim();
+  if(!msg){
+    $("#copyStatus").textContent = lang === "ko" ? "메시지를 입력해줘." : "Type a message first.";
+    return;
+  }
+  try{
+    await navigator.clipboard.writeText(msg);
+    $("#copyStatus").textContent = lang === "ko" ? "복사 완료 ✅" : "Copied ✅";
+  }catch{
+    $("#copyStatus").textContent = lang === "ko" ? "복사 실패(브라우저 권한 확인)" : "Copy failed (check permissions)";
+  }
+});
+
+// Interactive card
+let locked = true;
+const chip = $("#signalChip");
+const bar = $("#meterBar");
+const status = $("#statusText");
+
+function setLocked(v){
+  locked = v;
+  chip.textContent = locked ? "LOCKED" : "OPEN";
+  status.textContent = locked ? "PLV ≥ 0.85" : "SYNC: ACTIVE";
+  bar.style.width = locked ? "42%" : "78%";
+}
+setLocked(true);
+
+$("#pulseBtn").addEventListener("click", ()=>{
+  setLocked(!locked);
+  pulseBurst();
+});
+
+// Background pulse canvas
+const canvas = $("#pulse");
+const ctx = canvas.getContext("2d");
+let W=0, H=0;
+
+function resize(){
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  W = canvas.width = Math.floor(window.innerWidth * dpr);
+  H = canvas.height = Math.floor(window.innerHeight * dpr);
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+window.addEventListener("resize", resize);
+resize();
+
+let t = 0;
+const ripples = [];
+
+function pulseBurst(){
+  ripples.push({
+    x: window.innerWidth * (0.55 + (Math.random()-0.5)*0.25),
+    y: window.innerHeight * (0.25 + (Math.random()-0.5)*0.18),
+    r: 0,
+    a: 0.55
+  });
+  if(ripples.length > 10) ripples.shift();
+}
+
+function draw(){
+  t += 0.01;
+
+  ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+
+  // soft drifting lines
+  ctx.globalAlpha = 0.16;
+  for(let i=0;i<16;i++){
+    const y = (i/16) * window.innerHeight;
+    const sway = Math.sin(t*1.2 + i)*18 + Math.sin(t*0.7 + i*2)*12;
+    ctx.beginPath();
+    ctx.moveTo(0, y + sway);
+    ctx.lineTo(window.innerWidth, y - sway);
+    ctx.strokeStyle = "rgba(150,180,255,0.18)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // ripples
+  ctx.globalAlpha = 1;
+  for(const rp of ripples){
+    rp.r += 5.2;
+    rp.a *= 0.985;
+    const a = Math.max(0, rp.a);
+    ctx.beginPath();
+    ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
+    ctx.strokeStyle = `rgba(255,42,109,${0.35*a})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(rp.x, rp.y, rp.r*0.65, 0, Math.PI*2);
+    ctx.strokeStyle = `rgba(122,92,255,${0.28*a})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  // cleanup
+  for(let i=ripples.length-1;i>=0;i--){
+    if(ripples[i].a < 0.03) ripples.splice(i,1);
+  }
+
+  requestAnimationFrame(draw);
+}
+draw();
+
+// auto pulse occasionally
+setInterval(()=>{ if(!document.hidden) pulseBurst(); }, 2200);
