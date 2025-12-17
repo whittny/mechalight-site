@@ -34,7 +34,7 @@
       <a href="#tech">Tech</a>
       <a href="#contact">Contact</a>
 
-      <!-- ✅ 추가: YouTube 채널 링크 -->
+      <!-- ✅ YouTube 링크 추가 -->
       <a href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">YouTube</a>
 
       <button id="langBtn" class="btn ghost" type="button" aria-label="Toggle language">KO/EN</button>
@@ -146,13 +146,12 @@
       </div>
 
       <div class="work-grid">
-        <!-- ✅ 일단 채널로 연결(나중에 영상 링크로 교체 가능) -->
-        <a class="work" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
+        <a class="work" href="#" target="_blank" rel="noopener">
           <div class="work-tag">MUSIC</div>
           <div class="work-title">XENOMERGE</div>
           <div class="work-sub" data-i18n="w1">YouTube / Hypnotic EDM</div>
         </a>
-        <a class="work" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
+        <a class="work" href="#" target="_blank" rel="noopener">
           <div class="work-tag">MUSIC</div>
           <div class="work-title">REDQUEEN</div>
           <div class="work-sub" data-i18n="w2">YouTube / Dark Electronic</div>
@@ -200,6 +199,7 @@
       </div>
     </section>
 
+    <!-- ✅ Contact: 메일발송 기능 제거 / 복사 + 링크만 -->
     <section id="contact" class="section contact">
       <div class="contact-card">
         <h2 class="h2" data-i18n="contactTitle">Contact</h2>
@@ -210,29 +210,20 @@
         <div class="contact-row">
           <div class="contact-item">
             <div class="label">Email</div>
-            <a class="value" href="mailto:whittny@gmail.com">whittny@gmail.com</a>
+            <button class="value copy-btn" type="button" data-copy="whittny@gmail.com">
+              whittny@gmail.com
+            </button>
           </div>
+
           <div class="contact-item">
             <div class="label">YouTube</div>
-            <!-- ✅ 채널 링크 반영 -->
             <a class="value" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
               youtube.com/@Mecha-Light
             </a>
           </div>
         </div>
 
-        <!-- ✅ copy + mailto -->
-        <form class="form" id="copyForm">
-          <input class="input" id="msgInput" type="text"
-                 data-i18n-placeholder="msgPH"
-                 placeholder="메시지를 적고 복사해서 이메일로 보내줘" />
-          <button class="btn primary" type="submit" data-i18n="copyBtn">메시지 복사</button>
-
-          <!-- ✅ 추가: 메일 보내기 -->
-          <button class="btn" id="sendEmailBtn" type="button">메일 보내기</button>
-
-          <span class="mono" id="copyStatus" aria-live="polite"></span>
-        </form>
+        <span class="mono subtle" id="copyStatus" aria-live="polite"></span>
       </div>
     </section>
 
