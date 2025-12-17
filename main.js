@@ -36,7 +36,7 @@ const dict = {
     t2t: "Audio",
     t3t: "AI",
     contactTitle: "Contact",
-    contactDesc: "협업/제작/기술 파이프라인 정리 의뢰는 아래로 연결해줘.",
+    contactDesc: "협업, 제작, 기술 파이프라인 정리 관련 문의는 아래를 통해 연락해 주세요.",
   },
   en: {
     kicker: "Ultra-dimensional rhythm-driven creative universe",
@@ -202,3 +202,4 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
     }
   });
 });
+
