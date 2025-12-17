@@ -33,6 +33,10 @@
       <a href="#works">Works</a>
       <a href="#tech">Tech</a>
       <a href="#contact">Contact</a>
+
+      <!-- ✅ 추가: YouTube 채널 링크 -->
+      <a href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">YouTube</a>
+
       <button id="langBtn" class="btn ghost" type="button" aria-label="Toggle language">KO/EN</button>
     </nav>
   </header>
@@ -142,12 +146,13 @@
       </div>
 
       <div class="work-grid">
-        <a class="work" href="#" target="_blank" rel="noopener">
+        <!-- ✅ 일단 채널로 연결(나중에 영상 링크로 교체 가능) -->
+        <a class="work" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
           <div class="work-tag">MUSIC</div>
           <div class="work-title">XENOMERGE</div>
           <div class="work-sub" data-i18n="w1">YouTube / Hypnotic EDM</div>
         </a>
-        <a class="work" href="#" target="_blank" rel="noopener">
+        <a class="work" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
           <div class="work-tag">MUSIC</div>
           <div class="work-title">REDQUEEN</div>
           <div class="work-sub" data-i18n="w2">YouTube / Dark Electronic</div>
@@ -209,13 +214,23 @@
           </div>
           <div class="contact-item">
             <div class="label">YouTube</div>
-            <a class="value" href="#" target="_blank" rel="noopener" data-i18n="youtubeLink">채널/플레이리스트 링크 추가</a>
+            <!-- ✅ 채널 링크 반영 -->
+            <a class="value" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
+              youtube.com/@Mecha-Light
+            </a>
           </div>
         </div>
 
+        <!-- ✅ copy + mailto -->
         <form class="form" id="copyForm">
-          <input class="input" id="msgInput" type="text" data-i18n-placeholder="msgPH" placeholder="메시지를 적고 복사해서 이메일로 보내줘" />
+          <input class="input" id="msgInput" type="text"
+                 data-i18n-placeholder="msgPH"
+                 placeholder="메시지를 적고 복사해서 이메일로 보내줘" />
           <button class="btn primary" type="submit" data-i18n="copyBtn">메시지 복사</button>
+
+          <!-- ✅ 추가: 메일 보내기 -->
+          <button class="btn" id="sendEmailBtn" type="button">메일 보내기</button>
+
           <span class="mono" id="copyStatus" aria-live="polite"></span>
         </form>
       </div>
