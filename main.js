@@ -1,7 +1,10 @@
 const $ = (s) => document.querySelector(s);
 
-const year = new Date().getFullYear();
-$("#year").textContent = year;
+(function initYear(){
+  const year = new Date().getFullYear();
+  const el = $("#year");
+  if(el) el.textContent = year;
+})();
 
 let lang = "ko";
 const dict = {
@@ -26,17 +29,19 @@ const dict = {
     u2t: "Cinematic Presence", u2d: "빛/재질/카메라/연출을 “몰입 장치”로 통합합니다.",
     u3t: "Safe Infinite Resonance", u3d: "안정성(rollback/제어)을 포함한 확장 철학(vΩ)을 적용합니다.",
     worksTitle: "Works",
-    worksHint: "리듬으로 형상화된 세계의 흔적들",
-    w1: "YouTube / Hypnotic EDM",
-    w2: "YouTube / Dark Electronic",
-    w3: "UE5 Cinematic Sequence",
-    w4: "Workflow / Notes",
+    worksHint: "리듬으로 형상화된 흔적들을 이곳에 모읍니다.",
     techTitle: "Tech Stack",
     t1t: "Real-time",
     t2t: "Audio",
     t3t: "AI",
     contactTitle: "Contact",
     contactDesc: "협업, 제작, 기술 파이프라인 정리 관련 문의는 아래를 통해 연락해 주세요.",
+    msgPH: "메시지를 입력해 주세요.",
+    openEmailBtn: "이메일 열기",
+    copyBtn: "메시지 복사",
+    contactNote: "* “이메일 열기”는 사용자의 메일 앱을 여는 기능이며, 이 사이트가 메일을 직접 발송하지 않습니다.",
+    footerNote: "Cloudflare Pages 기반 리듬-드리븐 정적 사이트",
+    worksLoadFail: "Works 데이터를 불러오지 못했습니다. (콘솔을 확인해 주세요)"
   },
   en: {
     kicker: "Ultra-dimensional rhythm-driven creative universe",
@@ -59,96 +64,110 @@ const dict = {
     u2t: "Cinematic Presence", u2d: "Light, materials, camera, and direction become one immersion device.",
     u3t: "Safe Infinite Resonance", u3d: "We apply an expansion philosophy (vΩ) with stability and rollback control.",
     worksTitle: "Works",
-    worksHint: "Traces of worlds shaped by rhythm",
-    w1: "YouTube / Hypnotic EDM",
-    w2: "YouTube / Dark Electronic",
-    w3: "UE5 Cinematic Sequence",
-    w4: "Workflow / Notes",
+    worksHint: "A curated trace of outputs—shaped by rhythm.",
     techTitle: "Tech Stack",
     t1t: "Real-time",
     t2t: "Audio",
     t3t: "AI",
     contactTitle: "Contact",
     contactDesc: "For collaboration, production, or pipeline consulting—reach out below.",
+    msgPH: "Write your message here.",
+    openEmailBtn: "Open Email",
+    copyBtn: "Copy Message",
+    contactNote: "* “Open Email” launches your mail app. This site does not send emails by itself.",
+    footerNote: "A rhythm-driven static site on Cloudflare Pages.",
+    worksLoadFail: "Failed to load works. (Check the console)"
   }
 };
 
 function applyLang(){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.getAttribute("data-i18n");
-    if(dict[lang][key]) el.textContent = dict[lang][key];
+    if(dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];
   });
-  renderWorks();
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-placeholder");
+    if(dict[lang] && dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
+  });
 }
 
-$("#langBtn").addEventListener("click", ()=>{
-  lang = (lang === "ko") ? "en" : "ko";
-  applyLang();
-});
-
-applyLang();
-
-let worksData = { items: [] };
-
-async function loadWorks(){
-  try{
-    const res = await fetch("./works.json", { cache: "no-store" });
-    if(!res.ok) throw new Error("Failed to load works.json");
-    worksData = await res.json();
-  }catch(e){
-    console.error(e);
-    worksData = { items: [] };
+(function initLang(){
+  const btn = $("#langBtn");
+  if(btn){
+    btn.addEventListener("click", ()=>{
+      lang = (lang === "ko") ? "en" : "ko";
+      applyLang();
+    });
   }
-  renderWorks();
-}
+  applyLang();
+})();
 
-function renderWorks(){
-  const grid = document.getElementById("worksGrid");
-  if(!grid) return;
+// Contact: copy + mailto open (정적사이트에서 “직접 발송”은 불가)
+(function initContact(){
+  const form = $("#contactForm");
+  const input = $("#msgInput");
+  const status = $("#copyStatus");
+  const openBtn = $("#openEmailBtn");
 
-  const items = worksData.items || [];
-  grid.innerHTML = items.map(item => {
-    const subText = item.sub?.[lang] ?? "";
-    const href = item.url || "#";
-    const target = href.startsWith("#") ? "" : ' target="_blank" rel="noopener"';
-    return `
-      <a class="work" href="${href}"${target}>
-        <div class="work-tag">${item.tag}</div>
-        <div class="work-title">${item.title}</div>
-        <div class="work-sub">${subText}</div>
-      </a>
-    `;
-  }).join("");
-}
+  if(openBtn){
+    openBtn.addEventListener("click", ()=>{
+      const to = "whittny@gmail.com";
+      const subject = encodeURIComponent("[MECHA-LIGHT] Contact");
+      const msg = (input?.value || "").trim();
+      const body = encodeURIComponent(msg || "Hello! I'd like to contact MECHA-LIGHT.");
+      // 메일 앱 열기 (브라우저 팝업/기본앱 설정에 따라 동작이 다를 수 있음)
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  }
+
+  if(form){
+    form.addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      const msg = (input?.value || "").trim();
+
+      if(!msg){
+        if(status) status.textContent = (lang === "ko") ? "메시지를 입력해 주세요." : "Type a message first.";
+        return;
+      }
+
+      try{
+        await navigator.clipboard.writeText(msg);
+        if(status) status.textContent = (lang === "ko") ? "복사 완료 ✅" : "Copied ✅";
+      }catch{
+        if(status) status.textContent = (lang === "ko") ? "복사 실패(브라우저 권한 확인)" : "Copy failed (check permissions)";
+      }
+    });
+  }
+})();
 
 // Interactive card
 let locked = true;
 const chip = $("#signalChip");
 const bar = $("#meterBar");
-const status = $("#statusText");
+const statusText = $("#statusText");
 
 function setLocked(v){
   locked = v;
-  chip.textContent = locked ? "LOCKED" : "OPEN";
-  status.textContent = locked ? "PLV ≥ 0.85" : "SYNC: ACTIVE";
-  bar.style.width = locked ? "42%" : "78%";
+  if(chip) chip.textContent = locked ? "LOCKED" : "OPEN";
+  if(statusText) statusText.textContent = locked ? "PLV ≥ 0.85" : "SYNC: ACTIVE";
+  if(bar) bar.style.width = locked ? "42%" : "78%";
 }
 setLocked(true);
 
-$("#pulseBtn").addEventListener("click", ()=>{
+$("#pulseBtn")?.addEventListener("click", ()=>{
   setLocked(!locked);
   pulseBurst();
 });
 
 // Background pulse canvas
 const canvas = $("#pulse");
-const ctx = canvas.getContext("2d");
-let W=0, H=0;
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 function resize(){
+  if(!canvas || !ctx) return;
   const dpr = Math.max(1, window.devicePixelRatio || 1);
-  W = canvas.width = Math.floor(window.innerWidth * dpr);
-  H = canvas.height = Math.floor(window.innerHeight * dpr);
+  canvas.width = Math.floor(window.innerWidth * dpr);
+  canvas.height = Math.floor(window.innerHeight * dpr);
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
   ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -170,6 +189,7 @@ function pulseBurst(){
 }
 
 function draw(){
+  if(!ctx) return;
   t += 0.01;
 
   ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
@@ -219,56 +239,34 @@ draw();
 // auto pulse occasionally
 setInterval(()=>{ if(!document.hidden) pulseBurst(); }, 2200);
 
-// ✅ Email 복사 버튼 동작
-document.querySelectorAll(".copy-btn").forEach((btn) => {
-  btn.addEventListener("click", async () => {
-    const text = btn.dataset.copy || btn.textContent.trim();
-    const statusEl = document.getElementById("copyStatus");
-    try {
-      await navigator.clipboard.writeText(text);
-      if (statusEl) statusEl.textContent = (lang === "ko")
-        ? "이메일 주소가 복사되었습니다 ✅"
-        : "Email copied ✅";
-    } catch {
-      if (statusEl) statusEl.textContent = (lang === "ko")
-        ? "복사 실패 (브라우저 권한 확인)"
-        : "Copy failed (check permissions)";
-    }
-  });
-});
+// Works: JSON 로딩 후 카드 렌더
+async function loadWorks(){
+  const grid = document.getElementById("workGrid");
+  if(!grid) return;
 
-async function loadWorks() {
-  try {
-    const res = await fetch("./works.json");
+  try{
+    const res = await fetch("./data/works.json", { cache: "no-store" });
+    if(!res.ok) throw new Error(`works.json HTTP ${res.status}`);
     const works = await res.json();
 
-    const grid = document.getElementById("workGrid");
-    grid.innerHTML = "";
+    if(!Array.isArray(works) || works.length === 0){
+      grid.innerHTML = `<div class="mono subtle">—</div>`;
+      return;
+    }
 
-    works.forEach(w => {
-      const a = document.createElement("a");
-      a.className = "work";
-      a.href = w.url;
-      a.target = "_blank";
-      a.rel = "noopener";
+    grid.innerHTML = works.map(w => `
+      <a class="work" href="${w.url || '#'}" target="_blank" rel="noopener">
+        <div class="work-tag">${w.type || 'WORK'}</div>
+        <div class="work-title">${w.title || ''}</div>
+        <div class="work-sub">${w.subtitle || ''}</div>
+      </a>
+    `).join("");
 
-      a.innerHTML = `
-        <div class="work-tag">${w.type}</div>
-        <div class="work-title">${w.title}</div>
-        <div class="work-sub">${w.subtitle}</div>
-      `;
-
-      grid.appendChild(a);
-    });
-  } catch (e) {
+  }catch(e){
     console.error("Failed to load works.json", e);
+    const msg = dict[lang]?.worksLoadFail || "Failed to load works.";
+    grid.innerHTML = `<div class="mono subtle">${msg}</div>`;
   }
 }
 
-loadWorks();
-
-
-
-
-
-
+window.addEventListener("DOMContentLoaded", loadWorks);
