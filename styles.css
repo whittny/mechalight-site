@@ -356,3 +356,18 @@ a:hover{opacity:.92}
   .contact-row{grid-template-columns:1fr;}
   .stats{grid-template-columns:1fr;}
 }
+
+/* Contact: Email copy button looks like a link */
+.copy-btn{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+.copy-btn:hover{
+  opacity: 0.9;
+}
+
