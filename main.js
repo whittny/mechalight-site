@@ -26,7 +26,7 @@ const dict = {
     u2t: "Cinematic Presence", u2d: "빛/재질/카메라/연출을 “몰입 장치”로 통합합니다.",
     u3t: "Safe Infinite Resonance", u3d: "안정성(rollback/제어)을 포함한 확장 철학(vΩ)을 적용합니다.",
     worksTitle: "Works",
-    worksHint: "여기에 유튜브/사운클라우드/포트폴리오 링크를 꽂으면 바로 전시용 페이지가 됩니다.",
+    worksHint: "리듬으로 형상화된 세계의 흔적들",
     w1: "YouTube / Hypnotic EDM",
     w2: "YouTube / Dark Electronic",
     w3: "UE5 Cinematic Sequence",
@@ -59,7 +59,7 @@ const dict = {
     u2t: "Cinematic Presence", u2d: "Light, materials, camera, and direction become one immersion device.",
     u3t: "Safe Infinite Resonance", u3d: "We apply an expansion philosophy (vΩ) with stability and rollback control.",
     worksTitle: "Works",
-    worksHint: "Plug in your YouTube / SoundCloud / portfolio links to showcase instantly.",
+    worksHint: "Traces of worlds shaped by rhythm",
     w1: "YouTube / Hypnotic EDM",
     w2: "YouTube / Dark Electronic",
     w3: "UE5 Cinematic Sequence",
@@ -202,4 +202,5 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
     }
   });
 });
+
 
