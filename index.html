@@ -33,10 +33,7 @@
       <a href="#works">Works</a>
       <a href="#tech">Tech</a>
       <a href="#contact">Contact</a>
-
-      <!-- ✅ YouTube 링크 추가 -->
       <a href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">YouTube</a>
-
       <button id="langBtn" class="btn ghost" type="button" aria-label="Toggle language">KO/EN</button>
     </nav>
   </header>
@@ -142,9 +139,13 @@
     <section id="works" class="section">
       <div class="section-head">
         <h2 class="h2" data-i18n="worksTitle">Works</h2>
-        <p class="p subtle" data-i18n="worksHint">리듬으로 형상화된 세계의 흔적들</p>
+        <p class="p subtle" data-i18n="worksHint">
+          리듬으로 형상화된 흔적들을 이곳에 모읍니다.
+        </p>
       </div>
-      <div class="work-grid" id="worksGrid"></div>
+
+      <!-- JSON으로 채워짐 -->
+      <div class="work-grid" id="workGrid"></div>
     </section>
 
     <section id="tech" class="section">
@@ -177,22 +178,18 @@
       </div>
     </section>
 
-    <!-- ✅ Contact: 메일발송 기능 제거 / 복사 + 링크만 -->
     <section id="contact" class="section contact">
       <div class="contact-card">
         <h2 class="h2" data-i18n="contactTitle">Contact</h2>
-          <p class="p" data-i18n="contactDesc">
-            협업, 제작, 기술 파이프라인 정리 관련 문의는 아래를 통해 연락해 주세요.
-          </p>
-        
+        <p class="p" data-i18n="contactDesc">
+          협업, 제작, 기술 파이프라인 정리 관련 문의는 아래를 통해 연락해 주세요.
+        </p>
+
         <div class="contact-row">
           <div class="contact-item">
             <div class="label">Email</div>
-            <button class="value copy-btn" type="button" data-copy="whittny@gmail.com">
-              whittny@gmail.com
-            </button>
+            <a class="value" href="mailto:whittny@gmail.com">whittny@gmail.com</a>
           </div>
-
           <div class="contact-item">
             <div class="label">YouTube</div>
             <a class="value" href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">
@@ -201,19 +198,27 @@
           </div>
         </div>
 
-        <span class="mono subtle" id="copyStatus" aria-live="polite"></span>
+        <form class="form" id="contactForm">
+          <input class="input" id="msgInput" type="text"
+                 data-i18n-placeholder="msgPH"
+                 placeholder="메시지를 입력해 주세요." />
+          <button class="btn" id="openEmailBtn" type="button" data-i18n="openEmailBtn">이메일 열기</button>
+          <button class="btn primary" id="copyBtn" type="submit" data-i18n="copyBtn">메시지 복사</button>
+          <span class="mono" id="copyStatus" aria-live="polite"></span>
+        </form>
+
+        <div class="mono subtle contact-note" data-i18n="contactNote">
+          * “이메일 열기”는 사용자의 메일 앱을 여는 기능이며, 이 사이트가 메일을 직접 발송하지 않습니다.
+        </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="mono">© <span id="year"></span> MECHA-LIGHT</div>
-      <div class="mono subtle">A resonance system encoded in minimal form.</div>
+      <div class="mono subtle" data-i18n="footerNote">A rhythm-driven static site on Cloudflare Pages.</div>
     </footer>
   </main>
 
   <script src="./main.js"></script>
 </body>
 </html>
-
-
-
