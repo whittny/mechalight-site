@@ -239,7 +239,7 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
 
 async function loadWorks() {
   try {
-    const res = await fetch("./data/works.json");
+    const res = await fetch("./works.json");
     const works = await res.json();
 
     const grid = document.getElementById("workGrid");
@@ -266,6 +266,7 @@ async function loadWorks() {
 }
 
 loadWorks();
+
 
 
 
