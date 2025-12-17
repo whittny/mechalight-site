@@ -237,5 +237,37 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
   });
 });
 
+async function loadWorks() {
+  try {
+    const res = await fetch("./data/works.json");
+    const works = await res.json();
+
+    const grid = document.getElementById("workGrid");
+    grid.innerHTML = "";
+
+    works.forEach(w => {
+      const a = document.createElement("a");
+      a.className = "work";
+      a.href = w.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+
+      a.innerHTML = `
+        <div class="work-tag">${w.type}</div>
+        <div class="work-title">${w.title}</div>
+        <div class="work-sub">${w.subtitle}</div>
+      `;
+
+      grid.appendChild(a);
+    });
+  } catch (e) {
+    console.error("Failed to load works.json", e);
+  }
+}
+
+loadWorks();
+
+
+
 
 
