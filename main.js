@@ -41,7 +41,8 @@ const dict = {
     copyBtn: "메시지 복사",
     contactNote: "* “이메일 열기”는 사용자의 메일 앱을 여는 기능이며, 이 사이트가 메일을 직접 발송하지 않습니다.",
     footerNote: "Cloudflare Pages 기반 리듬-드리븐 정적 사이트",
-    worksLoadFail: "Works 데이터를 불러오지 못했습니다. (콘솔을 확인해 주세요)"
+    worksLoadFail: "Works 데이터를 불러오지 못했습니다. (콘솔을 확인해 주세요)",
+    contactEmail: "contact@mechalight.co.kr"
   },
   en: {
     kicker: "Ultra-dimensional rhythm-driven creative universe",
@@ -76,7 +77,8 @@ const dict = {
     copyBtn: "Copy Message",
     contactNote: "* “Open Email” launches your mail app. This site does not send emails by itself.",
     footerNote: "A rhythm-driven static site on Cloudflare Pages.",
-    worksLoadFail: "Failed to load works. (Check the console)"
+    worksLoadFail: "Failed to load works. (Check the console)",
+    contactEmail: "contact@mechalight.net"
   }
 };
 
@@ -89,6 +91,14 @@ function applyLang(){
     const key = el.getAttribute("data-i18n-placeholder");
     if(dict[lang] && dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
   });
+  
+  // Link & Text for email
+  const emailLink = $("#contactEmailLink");
+  if(emailLink && dict[lang] && dict[lang].contactEmail) {
+    const mail = dict[lang].contactEmail;
+    emailLink.textContent = mail;
+    emailLink.href = "mailto:" + mail;
+  }
 }
 
 (function initLang(){
@@ -111,7 +121,7 @@ function applyLang(){
 
   if(openBtn){
     openBtn.addEventListener("click", ()=>{
-      const to = "whittny@gmail.com";
+      const to = dict[lang]?.contactEmail || "contact@mechalight.co.kr";
       const subject = encodeURIComponent("[MECHA-LIGHT] Contact");
       const msg = (input?.value || "").trim();
       const body = encodeURIComponent(msg || "Hello! I'd like to contact MECHA-LIGHT.");
