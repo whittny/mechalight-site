@@ -83,7 +83,6 @@ const dict = {
 };
 
 function applyLang() {
-  console.log("[Debug] applyLang called. Current lang:", lang);
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
@@ -96,11 +95,9 @@ function applyLang() {
 
   // Link & Text for email
   const emailLink = $("#contactEmailLink");
-  if (!emailLink) console.warn("[Debug] #contactEmailLink not found in DOM");
 
   if (emailLink && dict[lang] && dict[lang].contactEmail) {
     const mail = dict[lang].contactEmail;
-    console.log("[Debug] Switching email to:", mail);
     emailLink.textContent = mail;
     emailLink.href = "mailto:" + mail;
   }
