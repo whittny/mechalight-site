@@ -1,9 +1,9 @@
 const $ = (s) => document.querySelector(s);
 
-(function initYear(){
+(function initYear() {
   const year = new Date().getFullYear();
   const el = $("#year");
-  if(el) el.textContent = year;
+  if (el) el.textContent = year;
 })();
 
 let lang = "ko";
@@ -82,45 +82,50 @@ const dict = {
   }
 };
 
-function applyLang(){
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
+function applyLang() {
+  console.log("[Debug] applyLang called. Current lang:", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if(dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];
+    if (dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];
   });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
     const key = el.getAttribute("data-i18n-placeholder");
-    if(dict[lang] && dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
+    if (dict[lang] && dict[lang][key]) el.setAttribute("placeholder", dict[lang][key]);
   });
-  
+
   // Link & Text for email
   const emailLink = $("#contactEmailLink");
-  if(emailLink && dict[lang] && dict[lang].contactEmail) {
+  if (!emailLink) console.warn("[Debug] #contactEmailLink not found in DOM");
+
+  if (emailLink && dict[lang] && dict[lang].contactEmail) {
     const mail = dict[lang].contactEmail;
+    console.log("[Debug] Switching email to:", mail);
     emailLink.textContent = mail;
     emailLink.href = "mailto:" + mail;
   }
 }
 
-(function initLang(){
+window.addEventListener("DOMContentLoaded", function initLang() {
   const btn = $("#langBtn");
-  if(btn){
-    btn.addEventListener("click", ()=>{
+  if (btn) {
+    btn.addEventListener("click", () => {
       lang = (lang === "ko") ? "en" : "ko";
       applyLang();
     });
   }
   applyLang();
-})();
+});
 
 // Contact: copy + mailto open (정적사이트에서 “직접 발송”은 불가)
-(function initContact(){
+(function initContact() {
   const form = $("#contactForm");
   const input = $("#msgInput");
   const status = $("#copyStatus");
   const openBtn = $("#openEmailBtn");
 
-  if(openBtn){
-    openBtn.addEventListener("click", ()=>{
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
       const to = dict[lang]?.contactEmail || "contact@mechalight.co.kr";
       const subject = encodeURIComponent("[MECHA-LIGHT] Contact");
       const msg = (input?.value || "").trim();
@@ -130,21 +135,21 @@ function applyLang(){
     });
   }
 
-  if(form){
-    form.addEventListener("submit", async (e)=>{
+  if (form) {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const msg = (input?.value || "").trim();
 
-      if(!msg){
-        if(status) status.textContent = (lang === "ko") ? "메시지를 입력해 주세요." : "Type a message first.";
+      if (!msg) {
+        if (status) status.textContent = (lang === "ko") ? "메시지를 입력해 주세요." : "Type a message first.";
         return;
       }
 
-      try{
+      try {
         await navigator.clipboard.writeText(msg);
-        if(status) status.textContent = (lang === "ko") ? "복사 완료 ✅" : "Copied ✅";
-      }catch{
-        if(status) status.textContent = (lang === "ko") ? "복사 실패(브라우저 권한 확인)" : "Copy failed (check permissions)";
+        if (status) status.textContent = (lang === "ko") ? "복사 완료 ✅" : "Copied ✅";
+      } catch {
+        if (status) status.textContent = (lang === "ko") ? "복사 실패(브라우저 권한 확인)" : "Copy failed (check permissions)";
       }
     });
   }
@@ -156,15 +161,15 @@ const chip = $("#signalChip");
 const bar = $("#meterBar");
 const statusText = $("#statusText");
 
-function setLocked(v){
+function setLocked(v) {
   locked = v;
-  if(chip) chip.textContent = locked ? "LOCKED" : "OPEN";
-  if(statusText) statusText.textContent = locked ? "PLV ≥ 0.85" : "SYNC: ACTIVE";
-  if(bar) bar.style.width = locked ? "42%" : "78%";
+  if (chip) chip.textContent = locked ? "LOCKED" : "OPEN";
+  if (statusText) statusText.textContent = locked ? "PLV ≥ 0.85" : "SYNC: ACTIVE";
+  if (bar) bar.style.width = locked ? "42%" : "78%";
 }
 setLocked(true);
 
-$("#pulseBtn")?.addEventListener("click", ()=>{
+$("#pulseBtn")?.addEventListener("click", () => {
   setLocked(!locked);
   pulseBurst();
 });
@@ -173,14 +178,14 @@ $("#pulseBtn")?.addEventListener("click", ()=>{
 const canvas = $("#pulse");
 const ctx = canvas ? canvas.getContext("2d") : null;
 
-function resize(){
-  if(!canvas || !ctx) return;
+function resize() {
+  if (!canvas || !ctx) return;
   const dpr = Math.max(1, window.devicePixelRatio || 1);
   canvas.width = Math.floor(window.innerWidth * dpr);
   canvas.height = Math.floor(window.innerHeight * dpr);
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
-  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 window.addEventListener("resize", resize);
 resize();
@@ -188,27 +193,27 @@ resize();
 let t = 0;
 const ripples = [];
 
-function pulseBurst(){
+function pulseBurst() {
   ripples.push({
-    x: window.innerWidth * (0.55 + (Math.random()-0.5)*0.25),
-    y: window.innerHeight * (0.25 + (Math.random()-0.5)*0.18),
+    x: window.innerWidth * (0.55 + (Math.random() - 0.5) * 0.25),
+    y: window.innerHeight * (0.25 + (Math.random() - 0.5) * 0.18),
     r: 0,
     a: 0.55
   });
-  if(ripples.length > 10) ripples.shift();
+  if (ripples.length > 10) ripples.shift();
 }
 
-function draw(){
-  if(!ctx) return;
+function draw() {
+  if (!ctx) return;
   t += 0.01;
 
-  ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
   // soft drifting lines
   ctx.globalAlpha = 0.16;
-  for(let i=0;i<16;i++){
-    const y = (i/16) * window.innerHeight;
-    const sway = Math.sin(t*1.2 + i)*18 + Math.sin(t*0.7 + i*2)*12;
+  for (let i = 0; i < 16; i++) {
+    const y = (i / 16) * window.innerHeight;
+    const sway = Math.sin(t * 1.2 + i) * 18 + Math.sin(t * 0.7 + i * 2) * 12;
     ctx.beginPath();
     ctx.moveTo(0, y + sway);
     ctx.lineTo(window.innerWidth, y - sway);
@@ -219,27 +224,27 @@ function draw(){
 
   // ripples
   ctx.globalAlpha = 1;
-  for(const rp of ripples){
+  for (const rp of ripples) {
     rp.r += 5.2;
     rp.a *= 0.985;
     const a = Math.max(0, rp.a);
 
     ctx.beginPath();
-    ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
-    ctx.strokeStyle = `rgba(255,42,109,${0.35*a})`;
+    ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(255,42,109,${0.35 * a})`;
     ctx.lineWidth = 2;
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(rp.x, rp.y, rp.r*0.65, 0, Math.PI*2);
-    ctx.strokeStyle = `rgba(122,92,255,${0.28*a})`;
+    ctx.arc(rp.x, rp.y, rp.r * 0.65, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(122,92,255,${0.28 * a})`;
     ctx.lineWidth = 2;
     ctx.stroke();
   }
 
   // cleanup
-  for(let i=ripples.length-1;i>=0;i--){
-    if(ripples[i].a < 0.03) ripples.splice(i,1);
+  for (let i = ripples.length - 1; i >= 0; i--) {
+    if (ripples[i].a < 0.03) ripples.splice(i, 1);
   }
 
   requestAnimationFrame(draw);
@@ -247,19 +252,19 @@ function draw(){
 draw();
 
 // auto pulse occasionally
-setInterval(()=>{ if(!document.hidden) pulseBurst(); }, 2200);
+setInterval(() => { if (!document.hidden) pulseBurst(); }, 2200);
 
 // Works: JSON 로딩 후 카드 렌더
-async function loadWorks(){
+async function loadWorks() {
   const grid = document.getElementById("workGrid");
-  if(!grid) return;
+  if (!grid) return;
 
-  try{
+  try {
     const res = await fetch("./data/works.json", { cache: "no-store" });
-    if(!res.ok) throw new Error(`works.json HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`works.json HTTP ${res.status}`);
     const works = await res.json();
 
-    if(!Array.isArray(works) || works.length === 0){
+    if (!Array.isArray(works) || works.length === 0) {
       grid.innerHTML = `<div class="mono subtle">—</div>`;
       return;
     }
@@ -272,7 +277,7 @@ async function loadWorks(){
       </a>
     `).join("");
 
-  }catch(e){
+  } catch (e) {
     console.error("Failed to load works.json", e);
     const msg = dict[lang]?.worksLoadFail || "Failed to load works.";
     grid.innerHTML = `<div class="mono subtle">${msg}</div>`;
