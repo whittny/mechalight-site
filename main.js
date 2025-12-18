@@ -1,3 +1,14 @@
+/**
+ * MECHA-LIGHT
+ * Stable Baseline Version
+ * Verified & Locked
+ * Date: 2025-12-18
+ *
+ * NOTE:
+ * This file represents the last known stable state
+ * before MECHA-LIGHT vΩ development.
+ */
+
 const $ = (s) => document.querySelector(s);
 
 (function initYear() {
