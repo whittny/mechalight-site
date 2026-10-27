@@ -1,0 +1,35 @@
+{
+  "channelUrl": "https://www.youtube.com/@Mecha-Light",
+  "channelId": "UCyHML9UIfCLq-0chIav7XSQ",
+  "verifiedOn": "2026-10-27",
+  "publicVideoCount": 49,
+  "shortsTab": false,
+  "streamsTab": false,
+  "addedVideoIds": [
+    "ONMtLTDHlX0",
+    "43BwjOBpdug",
+    "b_B-dZYYZVo",
+    "BC8wjguydOM",
+    "Xq4kaycDOWI",
+    "3jM_4HbkToQ",
+    "6eYa0lx0UHs",
+    "OaoF6jE-QP4",
+    "aMhSCwXaJ0c"
+  ],
+  "previousEntriesNotInPublicList": [
+    {
+      "type": "MUSIC VIDEO",
+      "title": "DUAL RESONANCE",
+      "subtitle": "YouTube / MECHA LIGHT / Two Centers. One Axis. | Cyberpunk EDM",
+      "url": "https://www.youtube.com/watch?v=영상ID_18"
+    },
+    {
+      "type": "MUSIC VIDEO",
+      "title": "RITUAL FUSION",
+      "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
+      "url": "http://www.youtube.com/watch?v=s7-r89v-fh4",
+      "thumbnail": "./assets/works/ritual-fusion.svg",
+      "thumbnailKind": "archive-cover"
+    }
+  ]
+}

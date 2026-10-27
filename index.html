@@ -4,122 +4,201 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/png" href="./assets/official-mecha-light-logo.png">
+  <link rel="apple-touch-icon" href="./assets/official-mecha-light-logo.png">
   <meta name="theme-color" content="#0b0f1a" />
-  <title>MECHA-LIGHT</title>
-  <meta name="description" content="MECHA-LIGHT — Rhythm, Cinema, MetaHuman, and AI creation ecosystem." />
-  <meta property="og:title" content="MECHA-LIGHT" />
-  <meta property="og:description" content="Rhythm-driven cinematic universe and AI creator ecosystem." />
+  <title>MECHA LIGHT — Cyberpunk Creative Universe</title>
+  <meta name="description" content="MECHA LIGHT — Rhythm, Cinema, MetaHuman, AI creation ecosystem, and Video-to-Audio (V2A) R&D." />
+  <meta property="og:title" content="MECHA LIGHT" />
+  <meta property="og:description" content="Rhythm-driven cinematic universe, AI creator ecosystem, and Video-to-Audio research." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;600;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;600;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=52" />
 </head>
 
 <body>
-  <div class="bg">
-    <canvas id="pulse"></canvas>
-    <div class="grain"></div>
-  </div>
+  <canvas id="energyField" aria-hidden="true"></canvas>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
 
   <header class="header">
-    <a class="brand" href="#top" aria-label="MECHA-LIGHT Home">
-      <span class="brand-mark">ML</span>
-      <span class="brand-name">MECHA-LIGHT</span>
+    <a class="brand" href="#top" aria-label="MECHA LIGHT Home">
+      <img class="brand-mark official-brand-mark" src="./assets/official-mecha-light-logo.png" alt="" width="44" height="44">
+      <span class="brand-name">MECHA LIGHT</span>
     </a>
 
-    <nav class="nav">
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu ＋</button><nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#v2a">V2A R&amp;D</a>
       <a href="#universe">Universe</a>
       <a href="#works">Works</a>
       <a href="#tech">Tech</a>
       <a href="#contact">Contact</a>
       <a href="https://www.youtube.com/@Mecha-Light" target="_blank" rel="noopener">YouTube</a>
+      <button id="motionToggle" class="btn ghost" type="button" aria-pressed="false" aria-label="Pause visual motion">MOTION / ON</button>
       <button id="langBtn" class="btn ghost" type="button" aria-label="Toggle language">KO/EN</button>
     </nav>
   </header>
 
+  <div class="hero-dock" id="heroDock" inert aria-label="MECHA LIGHT persistent identity">
+    
+    <span class="dock-caption">RESONANCE / IN MOTION</span>
+    <div class="dock-visual" id="dockVisual"></div>
+    <a class="dock-back" href="#top" aria-label="Back to top">↑</a>
+  </div>
   <main id="top" class="main">
-    <section class="hero">
-      <div class="hero-left">
-        <p class="kicker" data-i18n="kicker">초고차원 리듬 기반 크리에이티브 유니버스</p>
-        <h1 class="title">
-          <span class="glow">MECHA-LIGHT</span>
-          <span class="subtitle" data-i18n="subtitle">Rhythm-Driven Cinema & AI Creation</span>
-        </h1>
+    <section class="hero" aria-labelledby="heroTitle"><div class="hero-topline"><span><i></i> MECHANICAL PRECISION / HUMAN RESONANCE</span><span>SEOUL · SOUND / VISION / AI</span></div><div class="hero-cockpit"><div class="hero-copy"><p class="kicker" data-i18n="kicker">기계와 감각이 공명하는 사이버펑크 유니버스</p><h1 id="heroTitle"><span class="neo-word" data-word="MECHA">MECHA</span><br><em class="neo-word neo-word-light" data-word="LIGHT">LIGHT</em><span class="title-code">[ ML—01 ]</span></h1><p class="lead" data-i18n="lead">메카닉의 정밀함, 사이버펑크의 에너지. 음악 · 메타휴먼 · 시네마틱 · AI를 하나의 공명 시스템으로 연결합니다.</p><div class="hero-bottom"><a class="btn primary" href="#works"><span data-i18n="ctaWorks">작업 보기</span> ↗</a><a class="btn" href="#v2a">EXPLORE V2A →</a></div><div class="system-readout"><span>01 / RHYTHM ENGINE</span><span>02 / NEURAL CINEMA</span><span>03 / AI SYNTHESIS</span></div></div><div class="reactor neon-reactor" tabindex="0" aria-label="Interactive multilayer counter-rotating sci-fi HUD"><div class="reactor-label"><span>MECHA LIGHT / RESONANCE CORE</span><span class="online" id="coreStatus">● ONLINE</span></div><div class="hud-scene" aria-hidden="true"><div class="hud-aura"></div><div class="hud-plane"><div class="hud-grid"></div><div class="hud-depth hud-depth-0" style="--depth:0px"><svg class="hud-rotor" style="--period:48s;--direction:normal;--emission:#ff355a" viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="259" stroke="#20354d" stroke-width="10"/><circle cx="300" cy="300" r="242" stroke="#ff355a" stroke-opacity=".2"/><path d="M539.00 300.00L552.00 300.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M545.81 324.21L550.79 324.70" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M542.25 348.19L547.16 349.16" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M536.36 371.70L541.15 373.15" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M520.81 391.46L532.82 396.44" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M517.83 416.43L522.24 418.79" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M505.37 437.23L509.53 440.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M490.93 456.70L494.80 459.87" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M469.00 469.00L478.19 478.19" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M456.70 490.93L459.87 494.80" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M437.23 505.37L440.00 509.53" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M416.43 517.83L418.79 522.24" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M391.46 520.81L396.44 532.82" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M371.70 536.36L373.15 541.15" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M348.19 542.25L349.16 547.16" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M324.21 545.81L324.70 550.79" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M300.00 539.00L300.00 552.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M275.79 545.81L275.30 550.79" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M251.81 542.25L250.84 547.16" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M228.30 536.36L226.85 541.15" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M208.54 520.81L203.56 532.82" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M183.57 517.83L181.21 522.24" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M162.77 505.37L160.00 509.53" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M143.30 490.93L140.13 494.80" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M131.00 469.00L121.81 478.19" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M109.07 456.70L105.20 459.87" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M94.63 437.23L90.47 440.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M82.17 416.43L77.76 418.79" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M79.19 391.46L67.18 396.44" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M63.64 371.70L58.85 373.15" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M57.75 348.19L52.84 349.16" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M54.19 324.21L49.21 324.70" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M61.00 300.00L48.00 300.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M54.19 275.79L49.21 275.30" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M57.75 251.81L52.84 250.84" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M63.64 228.30L58.85 226.85" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M79.19 208.54L67.18 203.56" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M82.17 183.57L77.76 181.21" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M94.63 162.77L90.47 160.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M109.07 143.30L105.20 140.13" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M131.00 131.00L121.81 121.81" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M143.30 109.07L140.13 105.20" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M162.77 94.63L160.00 90.47" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M183.57 82.17L181.21 77.76" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M208.54 79.19L203.56 67.18" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M228.30 63.64L226.85 58.85" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M251.81 57.75L250.84 52.84" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M275.79 54.19L275.30 49.21" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M300.00 61.00L300.00 48.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M324.21 54.19L324.70 49.21" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M348.19 57.75L349.16 52.84" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M371.70 63.64L373.15 58.85" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M391.46 79.19L396.44 67.18" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M416.43 82.17L418.79 77.76" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M437.23 94.63L440.00 90.47" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M456.70 109.07L459.87 105.20" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M469.00 131.00L478.19 121.81" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M490.93 143.30L494.80 140.13" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M505.37 162.77L509.53 160.00" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M517.83 183.57L522.24 181.21" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M520.81 208.54L532.82 203.56" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M536.36 228.30L541.15 226.85" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M542.25 251.81L547.16 250.84" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M545.81 275.79L550.79 275.30" stroke="#ff355a" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M530.73 332.43A233 233 0 0 1 340.46 529.46" stroke="#ff355a" stroke-width="2"/><path d="M156.55 483.61A233 233 0 0 1 81.05 220.31" stroke="#ff355a" stroke-width="2"/><path d="M212.72 83.97A233 233 0 0 1 478.49 150.23" stroke="#ff355a" stroke-width="2"/><text x="300" y="80" transform="rotate(0 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">000 / ML</text><text x="300" y="80" transform="rotate(60 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">060 / ML</text><text x="300" y="80" transform="rotate(120 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">120 / ML</text><text x="300" y="80" transform="rotate(180 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">180 / ML</text><text x="300" y="80" transform="rotate(240 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">240 / ML</text><text x="300" y="80" transform="rotate(300 300 300)" text-anchor="middle" fill="#ff355a" font-size="7" font-family="monospace" letter-spacing="1">300 / ML</text></svg></div><div class="hud-depth hud-depth-1" style="--depth:25px"><svg class="hud-rotor" style="--period:35s;--direction:reverse;--emission:#65c9ff" viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="217" stroke="#20354d" stroke-width="10"/><circle cx="300" cy="300" r="200" stroke="#65c9ff" stroke-opacity=".2"/><path d="M497.00 300.00L515.00 300.00" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M503.25 326.76L513.16 328.06" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M498.01 353.06L507.67 355.65" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M489.40 378.45L498.63 382.28" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M470.61 398.50L486.20 407.50" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M462.64 424.80L470.57 430.88" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M444.96 444.96L452.03 452.03" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M424.80 462.64L430.88 470.57" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M398.50 470.61L407.50 486.20" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M378.45 489.40L382.28 498.63" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M353.06 498.01L355.65 507.67" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M326.76 503.25L328.06 513.16" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M300.00 497.00L300.00 515.00" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M273.24 503.25L271.94 513.16" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M246.94 498.01L244.35 507.67" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M221.55 489.40L217.72 498.63" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M201.50 470.61L192.50 486.20" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M175.20 462.64L169.12 470.57" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M155.04 444.96L147.97 452.03" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M137.36 424.80L129.43 430.88" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M129.39 398.50L113.80 407.50" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M110.60 378.45L101.37 382.28" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M101.99 353.06L92.33 355.65" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M96.75 326.76L86.84 328.06" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M103.00 300.00L85.00 300.00" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M96.75 273.24L86.84 271.94" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M101.99 246.94L92.33 244.35" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M110.60 221.55L101.37 217.72" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M129.39 201.50L113.80 192.50" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M137.36 175.20L129.43 169.12" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M155.04 155.04L147.97 147.97" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M175.20 137.36L169.12 129.43" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M201.50 129.39L192.50 113.80" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M221.55 110.60L217.72 101.37" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M246.94 101.99L244.35 92.33" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M273.24 96.75L271.94 86.84" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M300.00 103.00L300.00 85.00" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M326.76 96.75L328.06 86.84" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M353.06 101.99L355.65 92.33" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M378.45 110.60L382.28 101.37" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M398.50 129.39L407.50 113.80" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M424.80 137.36L430.88 129.43" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M444.96 155.04L452.03 147.97" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M462.64 175.20L470.57 169.12" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M470.61 201.50L486.20 192.50" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="1"/><path d="M489.40 221.55L498.63 217.72" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M498.01 246.94L507.67 244.35" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M503.25 273.24L513.16 271.94" stroke="#65c9ff" stroke-width="7" stroke-linecap="square" opacity="0.7"/><path d="M489.14 326.58A191 191 0 0 1 333.17 488.10" stroke="#65c9ff" stroke-width="3"/><path d="M182.41 450.51A191 191 0 0 1 120.52 234.67" stroke="#65c9ff" stroke-width="3"/><path d="M228.45 122.91A191 191 0 0 1 446.31 177.23" stroke="#65c9ff" stroke-width="3"/><text x="300" y="122" transform="rotate(0 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">000 / ML</text><text x="300" y="122" transform="rotate(60 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">060 / ML</text><text x="300" y="122" transform="rotate(120 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">120 / ML</text><text x="300" y="122" transform="rotate(180 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">180 / ML</text><text x="300" y="122" transform="rotate(240 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">240 / ML</text><text x="300" y="122" transform="rotate(300 300 300)" text-anchor="middle" fill="#65c9ff" font-size="7" font-family="monospace" letter-spacing="1">300 / ML</text></svg></div><div class="hud-depth hud-depth-2" style="--depth:52px"><svg class="hud-rotor" style="--period:27s;--direction:normal;--emission:#ff4668" viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="176" stroke="#20354d" stroke-width="5"/><circle cx="300" cy="300" r="159" stroke="#ff4668" stroke-opacity=".2"/><path d="M456.00 300.00L469.00 300.00" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M463.38 314.29L468.36 314.73" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M461.51 328.48L466.43 329.35" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M458.41 342.45L463.24 343.74" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M446.59 353.36L458.81 357.80" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M448.63 369.31L453.17 371.42" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M442.03 382.00L446.36 384.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M434.34 394.07L438.44 396.93" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M419.50 400.27L429.46 408.63" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M415.97 415.97L419.50 419.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M405.42 425.63L408.63 429.46" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M394.07 434.34L396.93 438.44" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M378.00 435.10L384.50 446.36" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M369.31 448.63L371.42 453.17" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M356.09 454.11L357.80 458.81" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M342.45 458.41L343.74 463.24" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M327.09 453.63L329.35 466.43" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M314.29 463.38L314.73 468.36" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 464.00L300.00 469.00" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M285.71 463.38L285.27 468.36" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M272.91 453.63L270.65 466.43" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M257.55 458.41L256.26 463.24" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M243.91 454.11L242.20 458.81" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M230.69 448.63L228.58 453.17" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M222.00 435.10L215.50 446.36" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M205.93 434.34L203.07 438.44" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M194.58 425.63L191.37 429.46" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M184.03 415.97L180.50 419.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M180.50 400.27L170.54 408.63" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M165.66 394.07L161.56 396.93" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M157.97 382.00L153.64 384.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M151.37 369.31L146.83 371.42" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M153.41 353.36L141.19 357.80" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M141.59 342.45L136.76 343.74" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M138.49 328.48L133.57 329.35" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M136.62 314.29L131.64 314.73" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M144.00 300.00L131.00 300.00" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M136.62 285.71L131.64 285.27" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M138.49 271.52L133.57 270.65" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M141.59 257.55L136.76 256.26" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M153.41 246.64L141.19 242.20" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M151.37 230.69L146.83 228.58" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M157.97 218.00L153.64 215.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M165.66 205.93L161.56 203.07" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M180.50 199.73L170.54 191.37" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M184.03 184.03L180.50 180.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M194.58 174.37L191.37 170.54" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M205.93 165.66L203.07 161.56" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M222.00 164.90L215.50 153.64" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M230.69 151.37L228.58 146.83" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M243.91 145.89L242.20 141.19" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M257.55 141.59L256.26 136.76" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M272.91 146.37L270.65 133.57" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M285.71 136.62L285.27 131.64" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 136.00L300.00 131.00" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M314.29 136.62L314.73 131.64" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M327.09 146.37L329.35 133.57" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M342.45 141.59L343.74 136.76" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M356.09 145.89L357.80 141.19" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M369.31 151.37L371.42 146.83" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M378.00 164.90L384.50 153.64" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M394.07 165.66L396.93 161.56" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M405.42 174.37L408.63 170.54" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M415.97 184.03L419.50 180.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M419.50 199.73L429.46 191.37" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M434.34 205.93L438.44 203.07" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M442.03 218.00L446.36 215.50" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M448.63 230.69L453.17 228.58" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M446.59 246.64L458.81 242.20" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M458.41 257.55L463.24 256.26" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M461.51 271.52L466.43 270.65" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M463.38 285.71L468.36 285.27" stroke="#ff4668" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M448.54 320.88A150 150 0 0 1 326.05 447.72" stroke="#ff4668" stroke-width="2"/><path d="M207.65 418.20A150 150 0 0 1 159.05 248.70" stroke="#ff4668" stroke-width="2"/><path d="M243.81 160.92A150 150 0 0 1 414.91 203.58" stroke="#ff4668" stroke-width="2"/><text x="300" y="163" transform="rotate(0 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">000 / ML</text><text x="300" y="163" transform="rotate(60 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">060 / ML</text><text x="300" y="163" transform="rotate(120 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">120 / ML</text><text x="300" y="163" transform="rotate(180 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">180 / ML</text><text x="300" y="163" transform="rotate(240 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">240 / ML</text><text x="300" y="163" transform="rotate(300 300 300)" text-anchor="middle" fill="#ff4668" font-size="7" font-family="monospace" letter-spacing="1">300 / ML</text></svg></div><div class="hud-depth hud-depth-3" style="--depth:78px"><svg class="hud-rotor" style="--period:21s;--direction:reverse;--emission:#75d9ff" viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="135" stroke="#20354d" stroke-width="5"/><circle cx="300" cy="300" r="118" stroke="#75d9ff" stroke-opacity=".2"/><path d="M415.00 300.00L433.00 300.00" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M421.49 319.24L431.36 320.81" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M416.98 338.01L426.49 341.10" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M409.59 355.84L418.50 360.38" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M393.04 367.60L407.60 378.18" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M386.97 386.97L394.05 394.05" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M372.30 399.51L378.18 407.60" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M355.84 409.59L360.38 418.50" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M335.54 409.37L341.10 426.49" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M319.24 421.49L320.81 431.36" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 423.00L300.00 433.00" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M280.76 421.49L279.19 431.36" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M264.46 409.37L258.90 426.49" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M244.16 409.59L239.62 418.50" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M227.70 399.51L221.82 407.60" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M213.03 386.97L205.95 394.05" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M206.96 367.60L192.40 378.18" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M190.41 355.84L181.50 360.38" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M183.02 338.01L173.51 341.10" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M178.51 319.24L168.64 320.81" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M185.00 300.00L167.00 300.00" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M178.51 280.76L168.64 279.19" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M183.02 261.99L173.51 258.90" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M190.41 244.16L181.50 239.62" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M206.96 232.40L192.40 221.82" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M213.03 213.03L205.95 205.95" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M227.70 200.49L221.82 192.40" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M244.16 190.41L239.62 181.50" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M264.46 190.63L258.90 173.51" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M280.76 178.51L279.19 168.64" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 177.00L300.00 167.00" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M319.24 178.51L320.81 168.64" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M335.54 190.63L341.10 173.51" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M355.84 190.41L360.38 181.50" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M372.30 200.49L378.18 192.40" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M386.97 213.03L394.05 205.95" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M393.04 232.40L407.60 221.82" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M409.59 244.16L418.50 239.62" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M416.98 261.99L426.49 258.90" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M421.49 280.76L431.36 279.19" stroke="#75d9ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M407.94 315.17A109 109 0 0 1 318.93 407.34" stroke="#75d9ff" stroke-width="3"/><path d="M232.89 385.89A109 109 0 0 1 197.57 262.72" stroke="#75d9ff" stroke-width="3"/><path d="M259.17 198.94A109 109 0 0 1 383.50 229.94" stroke="#75d9ff" stroke-width="3"/></svg></div><div class="hud-depth hud-depth-4" style="--depth:102px"><svg class="hud-rotor" style="--period:15s;--direction:normal;--emission:#ff506d" viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="95" stroke="#20354d" stroke-width="5"/><circle cx="300" cy="300" r="78" stroke="#ff506d" stroke-opacity=".2"/><path d="M375.00 300.00L388.00 300.00" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M381.41 316.19L386.31 317.17" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M376.68 331.76L381.30 333.68" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M369.01 346.11L373.17 348.89" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M353.03 353.03L362.23 362.23" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M346.11 369.01L348.89 373.17" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M331.76 376.68L333.68 381.30" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M316.19 381.41L317.17 386.31" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 375.00L300.00 388.00" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M283.81 381.41L282.83 386.31" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M268.24 376.68L266.32 381.30" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M253.89 369.01L251.11 373.17" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M246.97 353.03L237.77 362.23" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M230.99 346.11L226.83 348.89" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M223.32 331.76L218.70 333.68" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M218.59 316.19L213.69 317.17" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M225.00 300.00L212.00 300.00" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M218.59 283.81L213.69 282.83" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M223.32 268.24L218.70 266.32" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M230.99 253.89L226.83 251.11" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M246.97 246.97L237.77 237.77" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M253.89 230.99L251.11 226.83" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M268.24 223.32L266.32 218.70" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M283.81 218.59L282.83 213.69" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M300.00 225.00L300.00 212.00" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M316.19 218.59L317.17 213.69" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M331.76 223.32L333.68 218.70" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M346.11 230.99L348.89 226.83" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M353.03 246.97L362.23 237.77" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="1"/><path d="M369.01 253.89L373.17 251.11" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M376.68 268.24L381.30 266.32" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M381.41 283.81L386.31 282.83" stroke="#ff506d" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M368.33 309.60A69 69 0 0 1 311.98 367.95" stroke="#ff506d" stroke-width="2"/><path d="M257.52 354.37A69 69 0 0 1 235.16 276.40" stroke="#ff506d" stroke-width="2"/><path d="M274.15 236.02A69 69 0 0 1 352.86 255.65" stroke="#ff506d" stroke-width="2"/></svg></div><div class="hud-heart"><svg viewBox="0 0 600 600" fill="none"><circle cx="300" cy="300" r="47" fill="#071628" stroke="#60c9ff" stroke-opacity=".7"/><path d="M300 266l29 17v34l-29 17-29-17v-34z" fill="#062139" stroke="#92e8ff" stroke-width="2"/><path d="M289 289h22v22h-22z" fill="#b4f2ff"/><path d="M300 245v15m0 80v15m-55-55h15m80 0h15" stroke="#ff4668" stroke-width="2"/></svg></div><div class="hud-scanner"></div></div>
+<div class="hud-callout hud-callout-top"><span>COUNTER-ROTATING ARRAY</span><b>05 / INDEPENDENT LAYERS</b></div><div class="hud-callout hud-callout-bottom"><span>NEON RESONANCE / ML-01</span><b>RED EMISSION × ICE BLUE</b></div><span class="hud-side-label">SPATIAL DEPTH / ACTIVE</span></div><div class="reactor-footer"><span>REAL-TIME CREATION SYSTEM</span><button class="overdrive-btn" id="overdriveBtn" type="button" aria-pressed="false">OVERDRIVE ↗</button></div></div></div></section>
 
-        <p class="lead" data-i18n="lead">
-          음악(EDM) · 메타휴먼 · 언리얼 시네마틱 · AI 워크플로우를 하나의 “공명 시스템”으로 통합합니다.
+    <section id="v2a" class="section v2a v2a-flagship" aria-labelledby="v2aTitle">
+      <div class="v2a-head">
+        <div class="flagship-eyebrow"><span>MECHA LIGHT / AUDIO INTELLIGENCE</span><span>FEATURED TECHNOLOGY</span></div>
+        <p class="flagship-statement" data-i18n="flagshipStatement">움직임을 읽고.<br>소리의 공간을 설계하다.</p>
+        <h2 class="h2 flagship-title" id="v2aTitle" data-i18n="v2aTitle">V2A 연구개발</h2>
+        <p class="p v2a-lead" data-i18n="v2aLead">
+          소리가 없는 영상을 보고, 화면 속 사건에 맞는 효과음과 배경음을 프레임 단위로 만들어 내는 Video-to-Audio 모델을 개발하고 있습니다.
         </p>
+        <p class="v2a-status"><span class="v2a-dot" aria-hidden="true"></span><span data-i18n="v2aStatus">진행 중: 학습 데이터 정제와 모델 설계</span></p>
+      </div>
 
-        <div class="cta">
-          <a class="btn primary" href="#works" data-i18n="ctaWorks">작업 보기</a>
-          <a class="btn" href="#contact" data-i18n="ctaContact">협업 문의</a>
+      <div class="flagship-capabilities" aria-label="Featured audio capabilities"><span><b>01</b> <span data-i18n="flagshipMotion">영상 속 움직임</span></span><span><b>02</b> <span data-i18n="flagshipFriction">속도별 타이어 마찰음</span></span><span><b>03</b> <span data-i18n="flagshipSpatial">방향과 거리의 입체 음향</span></span></div>
+      <figure class="v2a-featured-video" aria-labelledby="v2aVideoLabel">
+        <div class="v2a-video-heading"><span id="v2aVideoLabel">V2A / VEHICLE SPATIAL AUDIO</span><span>SPEED → FRICTION → SOUND</span></div>
+        <div class="v2a-video-intro">
+          <h3 data-i18n="v2aVideoTitle">속도를 소리로, 주행을 공간으로.</h3>
+          <p data-i18n="v2aVideoDesc">영상 속 차량의 주행 사운드와 바퀴·노면 사이의 마찰음을 속도 변화에 맞춰 적용한 입체 음향 시연입니다. 차량의 움직임에 따라 달라지는 소리의 방향과 거리감으로 주행 현장의 공간감을 표현합니다.</p>
+        </div>
+        <div class="sound-invitation">
+          <div><span class="sound-eyebrow">DON’T JUST WATCH. FEEL THE DRIVE.</span><h4 data-i18n="soundInviteTitle">이 장면은 어떻게 들릴까요?</h4><p data-i18n="soundInviteDesc">엔진의 울림부터 타이어가 노면을 스치는 순간까지. 헤드폰을 쓰고 공간 속으로 들어와 보세요.</p></div>
+          <button id="v2aSoundToggle" class="sound-toggle" type="button" aria-pressed="false" aria-controls="v2aFeaturedPlayer" disabled><span class="sound-icon" aria-hidden="true">♪</span><span id="v2aSoundLabel">플레이어 연결 중…</span><span class="sound-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+          <span class="sound-feedback" id="v2aSoundFeedback" role="status"></span>
+        </div>
+        <div class="v2a-video-frame">
+          <iframe id="v2aFeaturedPlayer" width="1280" height="720"
+            title="Vehicle driving sound and speed-dependent tire friction spatial audio demonstration — YouTube"
+            data-src="https://www.youtube.com/embed/7H_l1GY5TQI?autoplay=1&amp;mute=1&amp;playsinline=1&amp;loop=1&amp;playlist=7H_l1GY5TQI&amp;rel=0"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <figcaption><span data-i18n="v2aVideoHint">소리를 켜고 헤드폰으로 감상해 보세요. 속도에 따라 달라지는 주행음과 타이어 마찰음의 입체감을 느낄 수 있습니다. (자동 재생은 음소거로 시작합니다.)</span><a href="https://youtu.be/7H_l1GY5TQI" target="_blank" rel="noopener" data-i18n="v2aVideoLink">YouTube에서 보기 ↗</a></figcaption>
+      </figure>
+
+      <!-- Interactive driving sound concept visualization -->
+      <figure class="drive-lab" id="driveLab" aria-labelledby="driveLabTitle">
+        <div class="drive-lab-top"><div><span class="drive-eyebrow">MECHA LIGHT / SPATIAL ENGINE</span><h3 id="driveLabTitle" data-i18n="driveLabTitle">주행의 움직임을 소리의 공간으로.</h3></div><span class="drive-live"><i></i> CONCEPT VISUALIZER</span></div>
+        <div class="drive-scene">
+          <canvas id="driveCanvas" aria-hidden="true"></canvas>
+          <div class="drive-scene-label"><span>VEHICLE / TIRE FRICTION</span><span>SIMULATED MOTION</span></div>
+          <div class="drive-speed"><span>SIM. SPEED</span><strong id="driveSpeed">80</strong><small>KM/H</small></div>
+          <div class="drive-car" id="driveCar" aria-hidden="true">
+            <svg viewBox="0 0 420 220" fill="none"><defs><linearGradient id="carMetal" x1="210" y1="40" x2="210" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#7492a9"/><stop offset=".3" stop-color="#2b4154"/><stop offset="1" stop-color="#080f18"/></linearGradient><linearGradient id="carGlass" x2="1" y2="1"><stop stop-color="#213e55"/><stop offset="1" stop-color="#050d16"/></linearGradient><filter id="tailGlow"><feGaussianBlur stdDeviation="3"/></filter></defs><ellipse cx="210" cy="191" rx="169" ry="17" fill="#000" opacity=".65"/><path d="M48 128l24-35 70-15h136l70 15 24 35v46l-25 15H73l-25-15z" fill="#070c13" stroke="#405a70" stroke-width="2"/><path d="M70 111l34-40 52-35h108l52 35 34 40-15 54H85z" fill="url(#carMetal)" stroke="#68869e" stroke-width="2"/><path d="M121 77l42-32h94l42 32z" fill="url(#carGlass)" stroke="#9fbdd0"/><path d="M103 83h214l13 19H90z" fill="#08111c" stroke="#6f899b"/><path d="M78 112l38-7h188l38 7-9 42H87z" fill="#152232"/><path d="M88 120h75l17 8h60l17-8h75" stroke="#ff4262" stroke-width="5"/><path d="M88 120h75l17 8h60l17-8h75" stroke="#ff4262" stroke-width="10" filter="url(#tailGlow)"/><path d="M90 157h240l-18 17H108z" fill="#040a10" stroke="#405369"/><path d="M118 157l10 17m40-17 5 17m79-17-5 17m55-17-10 17" stroke="#4a647b" stroke-width="3"/><path d="M40 93h340v12H40z" fill="#172638" stroke="#91a4b5"/><path d="M88 104v12m244-12v12" stroke="#0a0f18" stroke-width="8"/><rect x="58" y="137" width="25" height="48" rx="7" fill="#04070c"/><rect x="337" y="137" width="25" height="48" rx="7" fill="#04070c"/><path d="M61 145h19m-19 9h19m-19 9h19m260-18h19m-19 9h19m-19 9h19" stroke="#2e4357" stroke-width="2"/><rect x="184" y="141" width="52" height="16" rx="2" fill="#0b1622" stroke="#37516a"/><text x="210" y="152" fill="#8cc5de" font-family="monospace" font-size="8" text-anchor="middle">ML — V2A</text><circle cx="174" cy="171" r="8" fill="#080c11" stroke="#52697c" stroke-width="3"/><circle cx="246" cy="171" r="8" fill="#080c11" stroke="#52697c" stroke-width="3"/></svg>
+          </div>
+          <div class="drive-spatial"><span>L</span><div class="spatial-track"><i id="spatialDot"></i></div><span>R</span></div>
+          <div class="drive-scene-bottom"><span>ENGINE + ROAD + TIRE</span><span data-i18n="driveVisualOnly">개념 시각화 · 실제 음원 분석값 아님</span></div>
+        </div>
+        <div class="drive-console">
+          <div class="drive-modes" role="group" aria-label="Simulated driving mode">
+            <button type="button" class="drive-mode" data-drive="cruise" aria-pressed="true"><span>01</span><b data-i18n="driveCruise">정속 주행</b><small>CRUISE</small></button>
+            <button type="button" class="drive-mode" data-drive="accelerate" aria-pressed="false"><span>02</span><b data-i18n="driveAccelerate">가속</b><small>ACCELERATE</small></button>
+            <button type="button" class="drive-mode" data-drive="corner" aria-pressed="false"><span>03</span><b data-i18n="driveCorner">코너링</b><small>CORNERING</small></button>
+          </div>
+          <div class="drive-signals"><div><span>ENGINE / LOW FREQUENCY</span><div class="signal-bars" id="engineBars" aria-hidden="true"></div></div><div><span>TIRE / ROAD FRICTION</span><div class="signal-bars friction-bars" id="tireBars" aria-hidden="true"></div></div></div>
+        </div>
+        <figcaption><p data-i18n="driveLabCaption">모드를 바꾸면 속도와 마찰, 소리의 좌우 이동을 시각적으로 탐색할 수 있습니다. 실제 차량 사운드와 입체 음향은 위 영상에서 소리를 켜고 감상해 주세요.</p><button type="button" class="drive-pause" id="drivePause" aria-pressed="false">PAUSE Ⅱ</button></figcaption>
+      </figure>
+
+      <!-- 동작 방식: 순서가 있는 과정 -->
+      <div class="v2a-block">
+        <h3 class="v2a-h3" data-i18n="v2aHowTitle">작동 방식</h3>
+        <ol class="v2a-pipeline">
+          <li>
+            <h4 data-i18n="v2aP1t">영상 이해</h4>
+            <p data-i18n="v2aP1d">비디오 인코더가 프레임마다 장면, 동작, 물체를 읽어냅니다.</p>
+          </li>
+          <li>
+            <h4 data-i18n="v2aP2t">타이밍 맞춤과 생성</h4>
+            <p data-i18n="v2aP2d">프레임 단위 정렬 모듈이 사건 시점을 잡고, Flow Matching 기반 생성 모델이 소리를 만듭니다. 텍스트로 소리의 느낌을 조절할 수도 있습니다.</p>
+          </li>
+          <li>
+            <h4 data-i18n="v2aP3t">48kHz 오디오 출력</h4>
+            <p data-i18n="v2aP3d">편집에 바로 쓸 수 있는 고음질 효과음과 배경음을 내보냅니다.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="v2a-split">
+        <!-- 로드맵 -->
+        <div class="v2a-block">
+          <h3 class="v2a-h3" data-i18n="v2aRoadTitle">개발 로드맵</h3>
+          <ol class="v2a-road">
+            <li class="is-now">
+              <h4 data-i18n="v2aR1t">데이터 정제</h4>
+              <p data-i18n="v2aR1d">공개 영상-오디오 데이터에서 화면과 소리가 맞지 않는 샘플을 걸러내고 특징을 추출합니다.</p>
+            </li>
+            <li>
+              <h4 data-i18n="v2aR2t">대규모 학습</h4>
+              <p data-i18n="v2aR2d">영상, 텍스트, 오디오를 함께 학습하는 멀티노드 분산학습을 진행합니다.</p>
+            </li>
+            <li>
+              <h4 data-i18n="v2aR3t">평가와 최적화</h4>
+              <p data-i18n="v2aR3d">공개 벤치마크에서 기존 공개 모델과 비교하고 생성 속도를 높입니다.</p>
+            </li>
+            <li>
+              <h4 data-i18n="v2aR4t">시험 공개</h4>
+              <p data-i18n="v2aR4d">크리에이터와 제작사가 써 볼 수 있는 API 형태의 시험 버전을 준비합니다.</p>
+            </li>
+          </ol>
         </div>
 
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-num">vΩ</div>
-            <div class="stat-label" data-i18n="stat1">Resonance Framework</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">UE</div>
-            <div class="stat-label" data-i18n="stat2">MetaHuman / Sequencer</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">AI</div>
-            <div class="stat-label" data-i18n="stat3">Music · Image · Video</div>
-          </div>
+        <!-- 평가 기준 -->
+        <div class="v2a-block">
+          <h3 class="v2a-h3" data-i18n="v2aEvalTitle">성능을 재는 기준</h3>
+          <dl class="v2a-eval">
+            <div><dt data-i18n="v2aE1t">음질</dt><dd data-i18n="v2aE1d">FD, KL 지표로 실제 소리와 얼마나 비슷한지 측정</dd></div>
+            <div><dt data-i18n="v2aE2t">영상과의 일치</dt><dd data-i18n="v2aE2d">ImageBind score로 화면 내용과 소리가 맞는지 측정</dd></div>
+            <div><dt data-i18n="v2aE3t">타이밍</dt><dd data-i18n="v2aE3d">DeSync로 소리가 사건 시점에서 얼마나 어긋나는지 측정</dd></div>
+            <div><dt data-i18n="v2aE4t">비교 대상</dt><dd data-i18n="v2aE4d">VGGSound 테스트셋에서 MMAudio 등 공개 모델과 비교</dd></div>
+          </dl>
+
+          <h3 class="v2a-h3" data-i18n="v2aUseTitle">이런 곳에 씁니다</h3>
+          <ul class="v2a-use">
+            <li data-i18n="v2aU1">1인 크리에이터의 숏폼 효과음 작업</li>
+            <li data-i18n="v2aU2">게임 컷신과 시네마틱의 사운드 초안</li>
+            <li data-i18n="v2aU3">소리 없이 생성된 AI 영상의 후처리</li>
+          </ul>
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="card holo">
-          <div class="card-top">
-            <span class="chip">SIGNAL</span>
-            <span class="chip" id="signalChip">LOCKED</span>
-          </div>
-          <div class="card-mid">
-            <div class="meter">
-              <div class="meter-bar" id="meterBar"></div>
-            </div>
-            <p class="card-text" data-i18n="cardText">
-              “리듬은 감각을 통해 사고를 우회하고, 세계를 재배치한다.”
-            </p>
-          </div>
-          <div class="card-bottom">
-            <button class="btn ghost" id="pulseBtn" type="button" data-i18n="pulseBtn">PULSE</button>
-            <span class="mono" id="statusText">PLV ≥ 0.85</span>
-          </div>
-        </div>
+      <p class="v2a-note" data-i18n="v2aNote">
+        학습과 평가에는 공개 연구 데이터셋 VGGSound(CC BY 4.0, Chen et al., ICASSP 2020)를 출처를 밝혀 연구 목적으로 사용합니다.
+      </p>
+    </section>
+    <section class="featured-showcase" aria-label="Featured music film"><a class="hero-film" href="https://youtu.be/d6lSb7Waqzg" target="_blank" rel="noopener" aria-label="Watch SUKHAVATI on YouTube"><img src="./assets/sukhavati.jpg" width="640" height="360" alt="SUKHAVATI — MECHA LIGHT music video" fetchpriority="high"><div class="film-top"><span>FEATURED FILM / 01</span><span>MECHA LIGHT ORIGINAL</span></div><div class="film-bottom"><div><span>MUSIC × CINEMA</span><h2>SUKHAVATI</h2><p>Beyond Heaven, Land of Boundless Light</p></div><span class="play-circle" aria-hidden="true">↗</span></div></a><div class="discipline-strip"><span>RHYTHM</span><b>+</b><span>CINEMA</span><b>+</b><span>METAHUMAN</span><b>+</b><span>ARTIFICIAL INTELLIGENCE</span></div></section>
 
-        <div class="mini-grid">
-          <div class="mini">
-            <div class="mini-title" data-i18n="mini1t">Music</div>
-            <div class="mini-desc" data-i18n="mini1d">Hypnotic EDM / Cyber-Trance</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title" data-i18n="mini2t">Cinema</div>
-            <div class="mini-desc" data-i18n="mini2d">UE Sequencer / Lumen / Nanite</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title" data-i18n="mini3t">MetaHuman</div>
-            <div class="mini-desc" data-i18n="mini3d">Conform / Mesh Transfer / Rig</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title" data-i18n="mini4t">AI</div>
-            <div class="mini-desc" data-i18n="mini4d">Suno · Kling · ComfyUI</div>
-          </div>
-        </div>
+
+
+
+    <section id="works" class="section">
+      <div class="section-head">
+        <h2 class="h2" data-i18n="worksTitle">Works</h2>
+        <p class="p subtle" data-i18n="worksHint">
+          조회수가 높은 작품부터 만나보세요.
+        </p>
       </div>
+
+      <!-- JSON으로 채워짐 -->
+      <div class="work-grid" id="workGrid"></div><button class="btn archive-btn" id="archiveBtn" type="button" hidden></button>
     </section>
 
+    <!-- ===== V2A R&D ===== -->
     <section id="universe" class="section">
       <h2 class="h2" data-i18n="universeTitle">Universe</h2>
       <p class="p" data-i18n="universeDesc">
-        MECHA-LIGHT는 “대자비심 → 대지혜 → 대광명”의 흐름을 리듬/영상/캐릭터/기술로 번역합니다.
+        MECHA LIGHT는 “대자비심 → 대지혜 → 대광명”의 흐름을 리듬/영상/캐릭터/기술로 번역합니다.
         인간의 한계를 넘어서는 것이 아니라, 안정적으로 확장되는 공명(Resonance)을 설계합니다.
       </p>
 
@@ -137,18 +216,6 @@
           <p data-i18n="u3d">안정성(rollback/제어)을 포함한 확장 철학(vΩ)을 적용합니다.</p>
         </article>
       </div>
-    </section>
-
-    <section id="works" class="section">
-      <div class="section-head">
-        <h2 class="h2" data-i18n="worksTitle">Works</h2>
-        <p class="p subtle" data-i18n="worksHint">
-          리듬으로 형상화된 흔적들을 이곳에 모읍니다.
-        </p>
-      </div>
-
-      <!-- JSON으로 채워짐 -->
-      <div class="work-grid" id="workGrid"></div>
     </section>
 
     <section id="tech" class="section">
@@ -176,6 +243,7 @@
             <li>Suno (Music)</li>
             <li>Kling (Video)</li>
             <li>ComfyUI (Image/Flow)</li>
+            <li>V2A Model (Video-to-Audio R&amp;D)</li>
           </ul>
         </div>
       </div>
@@ -202,7 +270,7 @@
         </div>
 
         <form class="form" id="contactForm">
-          <input class="input" id="msgInput" type="text" data-i18n-placeholder="msgPH" placeholder="메시지를 입력해 주세요." />
+          <input aria-label="문의 메시지 / Your message" class="input" id="msgInput" type="text" data-i18n-placeholder="msgPH" placeholder="메시지를 입력해 주세요." />
           <button class="btn" id="openEmailBtn" type="button" data-i18n="openEmailBtn">이메일 열기</button>
           <button class="btn primary" id="copyBtn" type="submit" data-i18n="copyBtn">메시지 복사</button>
           <span class="mono" id="copyStatus" aria-live="polite"></span>
@@ -214,13 +282,21 @@
       </div>
     </section>
 
+    <div class="mirror-epilogue" aria-hidden="true">
+      <div class="mirror-wordmark"><span>MECHA</span><span>LIGHT</span></div>
+      <div class="mirror-horizon"></div>
+      <div class="mirror-wordmark mirror-wordmark-reflection"><span>MECHA</span><span>LIGHT</span></div>
+      <div class="mirror-ground"></div>
+    </div>
     <footer class="footer">
-      <div class="mono">© <span id="year"></span> MECHA-LIGHT</div>
+      <div class="mono">© <span id="year"></span> MECHA LIGHT</div>
       <div class="mono subtle" data-i18n="footerNote">A rhythm-driven static site on Cloudflare Pages.</div>
     </footer>
   </main>
 
-  <script src="./main.js?v=2"></script>
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+  <script src="./main.js?v=38"></script>
+  <script type="module" src="./hud-three.js?v=68"></script>
 </body>
 
 </html>

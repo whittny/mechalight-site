@@ -1,254 +1,590 @@
 [
   {
     "type": "MUSIC VIDEO",
-    "title": "SUKHAVATI",
-    "subtitle": "YouTube / MECHA LIGHT / SUKHAVATI - Beyond Heaven, Land of Boundless Light | Cyberpunk EDM",
-    "url": "https://youtu.be/d6lSb7Waqzg?si=NMLGeDnQeqpLTFYw"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "PĀRAGATE",
-    "subtitle": "YouTube / MECHA LIGHT / PĀRAGATE - Death Was Never Real | Cyberpunk EDM",
-    "url": "https://youtu.be/m6mvqjnuXwA?si=CFU4ttLx3BvuIstl"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "NOT SWEPT AWAY",
-    "subtitle": "YouTube / MECHA LIGHT / NOT SWEPT AWAY – Death Can’t Shake This Mind | Cyberpunk EDM",
-    "url": "https://youtu.be/OhhZk2RlK6Q?si=c2FyV4oONF0QwbaT"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "FINAL GATE",
-    "subtitle": "YouTube / MECHA LIGHT / FINAL GATE – Beyond Desire & Fear | Cyberpunk Dark Trance | Cyberpunk EDM",
-    "url": "https://youtu.be/JRdgo57qAxk?si=7erG3IAO1JM3_MH9"
-  },  
-  {
-    "type": "MUSIC VIDEO",
-    "title": "DHARMA OVERFLOW",
-    "subtitle": "YouTube / MECHA LIGHT / DHARMA OVERFLOW – When the Wheel Turns | Cyberpunk EDM",
-    "url": "https://youtu.be/hbHE1tT7hbE?si=nFnb-FLwPgGlNyZq"
-  },  
-  {
-    "type": "MUSIC VIDEO",
-    "title": "DEATHBREAK",
-    "subtitle": "YouTube / MECHA LIGHT / Break Beyond the Boundary | Industrial Dark Cyberpunk EDM",
-    "url": "https://youtu.be/eguK5I3rgCw?si=dr1Vvax9_JPlq9ly"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "NEON JANGDAN",
-    "subtitle": "YouTube / MECHA LIGHT / Where Korean Rhythms Meet Cyber Bass | Ritual Cyberpunk EDM",
-    "url": "https://youtu.be/sYhCqEW-qYU?si=Yn5wCkg6NOMcfGh1"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "NEON VICE",
-    "subtitle": "YouTube / MECHA LIGHT / Dark Rhythm · Sensory Alignment | Industrial Cyberpunk EDM",
-    "url": "https://youtu.be/TgxOc_JROnM?si=CuRW3eFY6QTT_HFx"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "LOTUS GATE",
-    "subtitle": "YouTube / MECHA LIGHT /  Enter the Rhythm Beyond Form | Cyberpunk EDM",
-    "url": "https://youtu.be/vZaX9Tt8Pxg?si=8TpObpiaNodxD8IQ"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "SITATA PATRA",
-    "subtitle": "YouTube / MECHA LIGHT /  System Awakens | Cyberpunk EDM",
-    "url": "https://youtu.be/ZJjG1p8VDo0?si=lAUbgde9o4V2yYCP"
-  },
-  {
-    "type": "MUSIC VIDEO",
     "title": "ELECTRIC PULSE",
-    "subtitle": "YouTube / MECHA LIGHT / Feel the Rhythm of Full Immersion",
-    "url": "https://youtu.be/HNYv3b-HP9U?si=ZZN0WSjo8qeCaiyN"
+    "subtitle": "ELECTRIC PULSE – Feel the Rhythm of Full Immersion",
+    "url": "https://www.youtube.com/watch?v=HNYv3b-HP9U",
+    "videoId": "HNYv3b-HP9U",
+    "sourceTitle": "ELECTRIC PULSE – Feel the Rhythm of Full Immersion",
+    "thumbnail": "./assets/works/HNYv3b-HP9U.jpg",
+    "viewCount": 79000,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "ECHOES",
-    "subtitle": "YouTube / MECHA LIGHT / Cyber Diva Override: Full-Body Sensory Sync",
-    "url": "https://youtu.be/oZf864PuC0Q?si=o92YKcUig4oFgQ4N"
+    "subtitle": "ECHOES – Cyber Diva Override: Full-Body Sensory Sync",
+    "url": "https://www.youtube.com/watch?v=oZf864PuC0Q",
+    "videoId": "oZf864PuC0Q",
+    "sourceTitle": "ECHOES – Cyber Diva Override: Full-Body Sensory Sync",
+    "thumbnail": "./assets/works/oZf864PuC0Q.jpg",
+    "viewCount": 8300,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "FUSELUST",
-    "subtitle": "YouTube / MECHA LIGHT / Locked in Rhythm, Driven by Desire",
-    "url": "https://youtu.be/IomrJ4-Xs8o?si=nYE4qwicrrhZjYiH"
+    "subtitle": "FUSELUST – Locked in Rhythm, Driven by Desire",
+    "url": "https://www.youtube.com/watch?v=IomrJ4-Xs8o",
+    "videoId": "IomrJ4-Xs8o",
+    "sourceTitle": "FUSELUST – Locked in Rhythm, Driven by Desire",
+    "thumbnail": "./assets/works/IomrJ4-Xs8o.jpg",
+    "viewCount": 7100,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "XENOMERGE",
-    "subtitle": "YouTube / MECHA LIGHT / Rhythm That Unlocks Infinite Pleasure",
-    "url": "https://youtu.be/jE7FTkmask8?si=zEhlU1HP6sunjzkR"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "CYBERRUSH",
-    "subtitle": "YouTube / MECHA LIGHT / High-Speed Rhythm. No Brakes. Total Sync",
-    "url": "https://youtu.be/VjUS-zLAJqg?si=fpoO9dFBptrdyEe5"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "HYPNOLOCK",
-    "subtitle": "YouTube / MECHA LIGHT / Hypnotic Drone Bass",
-    "url": "https://youtu.be/22PUtFBgv70?si=9DUAcKWEUNnpcuSw"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "REDQUEEN",
-    "subtitle": "YouTube / MECHA LIGHT / The Rhythm Beyond Reality",
-    "url": "https://youtu.be/M-R8uCB0nVw?si=9MYstbJ_vfeohkQq"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "RHYTHMLOCK",
-    "subtitle": "YouTube / MECHA LIGHT / You Will Obey the Rhythm",
-    "url": "https://youtu.be/Bbtj4ppdb4U?si=DDObcilpqprIf_Ej"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "REDMERGE",
-    "subtitle": "YouTube / MECHA LIGHT / A Trance Ritual Beyond Time",
-    "url": "https://youtu.be/EJqxtb5VJD8?si=w7UHeL9KXJlbl2lH"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "SHOCKSAIL",
-    "subtitle": "YouTube / MECHA LIGHT / The Rhythm Device that Turns Impact into Ascension",
-    "url": "https://youtu.be/BMUSpuCqN3g?si=bncLDYUThsOdv5o4"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "BASS ECLIPSE",
-    "subtitle": "YouTube / MECHA LIGHT / When Reality Melts Into Rhythm",
-    "url": "https://youtu.be/3E72eGia1Vo?si=xr4OfUqPs1Xqyqfq"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "SHOCKSAT",
-    "subtitle": "YouTube / MECHA LIGHT / When Reality Melts Into Rhythm",
-    "url": "https://youtu.be/1ASaiS6fREs?si=JmA3nrbU99EBYpOx"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "FATAL EMBRACE",
-    "subtitle": "YouTube / MECHA LIGHT / The Forbidden Rhythm of Two Souls",
-    "url": "https://youtu.be/cXGcm4Vhu0E?si=9pJXAJsOkDw2071P"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "NEURAL BIND",
-    "subtitle": "YouTube / MECHA LIGHT / You Don't Hear it. You Become It. | DJ ARIA Immersive Sync",
-    "url": "https://youtu.be/MPEIea7dOZA?si=bGp-OTDpWr1nEXYN"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "CRIMSON MERGE",
-    "subtitle": "YouTube / MECHA LIGHT / The Forbidden Pulse",
-    "url": "https://youtu.be/d7aowD1-1cI?si=ONMAiai0dodOJ47z"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "ECSTASY",
-    "subtitle": "YouTube / MECHA LIGHT / Wanting Never Ends",
-    "url": "https://youtu.be/L-E-V77qgos?si=WP6iYCTqU7lRRvK4"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "OVERLOAD",
-    "subtitle": "YouTube / MECHA LIGHT / The Pressure Ritual",
-    "url": "https://youtu.be/5KL1CfyQusk?si=zws_jwuBlFAnuEE_"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "DUAL RESONANCE",
-    "subtitle": "YouTube / MECHA LIGHT / Two Centers. One Axis. | Cyberpunk EDM",
-    "url": "https://www.youtube.com/watch?v=영상ID_18"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "DIAMOND RESONANCE",
-    "subtitle": "YouTube / MECHA LIGHT / Time Override Protocol",
-    "url": "https://youtu.be/G4JZJn8G_Eo?si=owavzxh6CXq5U0tC"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "DOMINION",
-    "subtitle": "YouTube / MECHA LIGHT / The Pulse That Claims the Room",
-    "url": "https://youtu.be/0Mr8uI2HBxk?si=LqKJOpv-k0O8legm"
-  },
-  {
-    "type": "MUSIC VIDEO",
-    "title": "PRAJNA GATE",
-    "subtitle": "YouTube / MECHA LIGHT / A Cyber-Ritual for Inner Awareness",
-    "url": "https://youtu.be/Q73OK4Rj0Yg?si=R1qAGlURCsUnBrFr"
-  }, 
-  {
-    "type": "MUSIC VIDEO",
-    "title": "RED FUSION",
-    "subtitle": "YouTube / MECHA LIGHT / The Heatflow Ritual",
-    "url": "https://youtu.be/KxCB_N3SFtU?si=OIKHGsYNekad8d5P"
+    "subtitle": "XENOMERGE – Rhythm That Unlocks Infinite Pleasure",
+    "url": "https://www.youtube.com/watch?v=jE7FTkmask8",
+    "videoId": "jE7FTkmask8",
+    "sourceTitle": "XENOMERGE – Rhythm That Unlocks Infinite Pleasure",
+    "thumbnail": "./assets/works/jE7FTkmask8.jpg",
+    "viewCount": 6700,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "CYBER GEISHA",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=QOjdBpRU01I"
+    "subtitle": "CYBER GEISHA | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=QOjdBpRU01I",
+    "videoId": "QOjdBpRU01I",
+    "sourceTitle": "CYBER GEISHA | Immersive Sound Experience",
+    "thumbnail": "./assets/works/QOjdBpRU01I.jpg",
+    "viewCount": 4400,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "CYBER PULSE",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=xM-fWI5MCuM"
+    "subtitle": "CYBER PULSE | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=xM-fWI5MCuM",
+    "videoId": "xM-fWI5MCuM",
+    "sourceTitle": "CYBER PULSE | Immersive Sound Experience",
+    "thumbnail": "./assets/works/xM-fWI5MCuM.jpg",
+    "viewCount": 2700,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "AROUSAL SYNC",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=SOK50ilCb1A"
+    "subtitle": "AROUSAL SYNC | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=SOK50ilCb1A",
+    "videoId": "SOK50ilCb1A",
+    "sourceTitle": "AROUSAL SYNC | Immersive Sound Experience",
+    "thumbnail": "./assets/works/SOK50ilCb1A.jpg",
+    "viewCount": 2400,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "CEREMONIAL SYNC",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=u-ye8yYCPNY"
+    "subtitle": "CEREMONIAL SYNC | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=u-ye8yYCPNY",
+    "videoId": "u-ye8yYCPNY",
+    "sourceTitle": "CEREMONIAL SYNC | Immersive Sound Experience",
+    "thumbnail": "./assets/works/u-ye8yYCPNY.jpg",
+    "viewCount": 2200,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "NEURAL SYNC",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=TS3eMSTUpXE"
+    "subtitle": "NEURAL SYNC | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=TS3eMSTUpXE",
+    "videoId": "TS3eMSTUpXE",
+    "sourceTitle": "NEURAL SYNC | Immersive Sound Experience",
+    "thumbnail": "./assets/works/TS3eMSTUpXE.jpg",
+    "viewCount": 2100,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
-    "title": "RITUAL FUSION",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=s7-r89v-fh4"
+    "title": "PĀRAGATE",
+    "subtitle": "PĀRAGATE - Death Was Never Real",
+    "url": "https://www.youtube.com/watch?v=m6mvqjnuXwA",
+    "videoId": "m6mvqjnuXwA",
+    "sourceTitle": "PĀRAGATE - Death Was Never Real",
+    "thumbnail": "./assets/works/m6mvqjnuXwA.jpg",
+    "viewCount": 1700,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "CYBERRUSH",
+    "subtitle": "CYBERRUSH – High-Speed Rhythm. No Brakes. Total Sync.",
+    "url": "https://www.youtube.com/watch?v=VjUS-zLAJqg",
+    "videoId": "VjUS-zLAJqg",
+    "sourceTitle": "CYBERRUSH – High-Speed Rhythm. No Brakes. Total Sync.",
+    "thumbnail": "./assets/works/VjUS-zLAJqg.jpg",
+    "viewCount": 1600,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "HYPNOLOCK",
+    "subtitle": "HYPNOLOCK – Hypnotic Drone Bass",
+    "url": "https://www.youtube.com/watch?v=22PUtFBgv70",
+    "videoId": "22PUtFBgv70",
+    "sourceTitle": "HYPNOLOCK – Hypnotic Drone Bass",
+    "thumbnail": "./assets/works/22PUtFBgv70.jpg",
+    "viewCount": 1400,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "CYBER FUSION",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=_s4gMQaMB34"
+    "subtitle": "CYBER FUSION | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=_s4gMQaMB34",
+    "videoId": "_s4gMQaMB34",
+    "sourceTitle": "CYBER FUSION | Immersive Sound Experience",
+    "thumbnail": "./assets/works/_s4gMQaMB34.jpg",
+    "viewCount": 1300,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "AMITARASHA",
-    "subtitle": "YouTube / MECHA LIGHT / Sonic Gateway to the 5BD Field",
-    "url": "http://www.youtube.com/watch?v=k2TkuIarqkU"
+    "subtitle": "SOHARMEER·AMITARASHA – Sonic Gateway to the 5BD Field",
+    "url": "https://www.youtube.com/watch?v=k2TkuIarqkU",
+    "videoId": "k2TkuIarqkU",
+    "sourceTitle": "SOHARMEER·AMITARASHA – Sonic Gateway to the 5BD Field",
+    "thumbnail": "./assets/works/k2TkuIarqkU.jpg",
+    "viewCount": 1100,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "NEURAL COMMAND",
-    "subtitle": "YouTube / MECHA LIGHT / Immersive Sound Experience",
-    "url": "http://www.youtube.com/watch?v=J7EwXe7Zv9k"
+    "subtitle": "NEURAL COMMAND | Immersive Sound Experience",
+    "url": "https://www.youtube.com/watch?v=J7EwXe7Zv9k",
+    "videoId": "J7EwXe7Zv9k",
+    "sourceTitle": "NEURAL COMMAND | Immersive Sound Experience",
+    "thumbnail": "./assets/works/J7EwXe7Zv9k.jpg",
+    "viewCount": 1100,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "BASS ECLIPSE",
+    "subtitle": "BASS ECLIPSE – When Reality Melts Into Rhythm",
+    "url": "https://www.youtube.com/watch?v=3E72eGia1Vo",
+    "videoId": "3E72eGia1Vo",
+    "sourceTitle": "BASS ECLIPSE – When Reality Melts Into Rhythm",
+    "thumbnail": "./assets/works/3E72eGia1Vo.jpg",
+    "viewCount": 1000,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "RHYTHMLOCK",
+    "subtitle": "RHYTHMLOCK – You Will Obey the Rhythm",
+    "url": "https://www.youtube.com/watch?v=Bbtj4ppdb4U",
+    "videoId": "Bbtj4ppdb4U",
+    "sourceTitle": "RHYTHMLOCK – You Will Obey the Rhythm",
+    "thumbnail": "./assets/works/Bbtj4ppdb4U.jpg",
+    "viewCount": 1000,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "REDQUEEN",
+    "subtitle": "REDQUEEN – The Rhythm Beyond Reality",
+    "url": "https://www.youtube.com/watch?v=M-R8uCB0nVw",
+    "videoId": "M-R8uCB0nVw",
+    "sourceTitle": "REDQUEEN – The Rhythm Beyond Reality",
+    "thumbnail": "./assets/works/M-R8uCB0nVw.jpg",
+    "viewCount": 961,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "REDMERGE",
+    "subtitle": "REDMERGE – A Trance Ritual Beyond Time",
+    "url": "https://www.youtube.com/watch?v=EJqxtb5VJD8",
+    "videoId": "EJqxtb5VJD8",
+    "sourceTitle": "REDMERGE – A Trance Ritual Beyond Time",
+    "thumbnail": "./assets/works/EJqxtb5VJD8.jpg",
+    "viewCount": 934,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "SHOCKSAIL",
+    "subtitle": "SHOCKSAIL – The Rhythm Device that Turns Impact into Ascension",
+    "url": "https://www.youtube.com/watch?v=BMUSpuCqN3g",
+    "videoId": "BMUSpuCqN3g",
+    "sourceTitle": "SHOCKSAIL – The Rhythm Device that Turns Impact into Ascension",
+    "thumbnail": "./assets/works/BMUSpuCqN3g.jpg",
+    "viewCount": 822,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   },
   {
     "type": "MUSIC VIDEO",
     "title": "SYNTHQUEEN",
-    "subtitle": "YouTube / MECHA LIGHT / Ritual of the Velvet Machine",
-    "url": "https://youtu.be/_h5KxuLnIG4?si=OhigRQSKOdIQRlNo"
+    "subtitle": "SYNTHQUEEN – Ritual of the Velvet Machine",
+    "url": "https://www.youtube.com/watch?v=_h5KxuLnIG4",
+    "videoId": "_h5KxuLnIG4",
+    "sourceTitle": "SYNTHQUEEN – Ritual of the Velvet Machine",
+    "thumbnail": "./assets/works/_h5KxuLnIG4.jpg",
+    "viewCount": 805,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "SHOCKSAT",
+    "subtitle": "SHOCKSAT – You Don’t Hear It. You Become It. | DJ ARIA Immersive Sync",
+    "url": "https://www.youtube.com/watch?v=1ASaiS6fREs",
+    "videoId": "1ASaiS6fREs",
+    "sourceTitle": "SHOCKSAT – You Don’t Hear It. You Become It. | DJ ARIA Immersive Sync",
+    "thumbnail": "./assets/works/1ASaiS6fREs.jpg",
+    "viewCount": 741,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "MERITFIRST",
+    "subtitle": "MERITFIRST - Merit Moves First",
+    "url": "https://www.youtube.com/watch?v=6eYa0lx0UHs",
+    "videoId": "6eYa0lx0UHs",
+    "sourceTitle": "MERITFIRST - Merit Moves First",
+    "thumbnail": "./assets/works/6eYa0lx0UHs.jpg",
+    "viewCount": 735,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "DUAL RESONANCE",
+    "subtitle": "DUAL RESONANCE – No Dominance. Only Resonance. | Cyberpunk EDM",
+    "url": "https://www.youtube.com/watch?v=aMhSCwXaJ0c",
+    "videoId": "aMhSCwXaJ0c",
+    "sourceTitle": "DUAL RESONANCE – No Dominance. Only Resonance. | Cyberpunk EDM",
+    "thumbnail": "./assets/works/aMhSCwXaJ0c.jpg",
+    "viewCount": 662,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "LOTUS GATE",
+    "subtitle": "LOTUS GATE – Enter the Rhythm Beyond Form",
+    "url": "https://www.youtube.com/watch?v=vZaX9Tt8Pxg",
+    "videoId": "vZaX9Tt8Pxg",
+    "sourceTitle": "LOTUS GATE – Enter the Rhythm Beyond Form",
+    "thumbnail": "./assets/works/vZaX9Tt8Pxg.jpg",
+    "viewCount": 624,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "SUKHAVATI",
+    "subtitle": "SUKHAVATI - Beyond Heaven, Land of Boundless Light",
+    "url": "https://www.youtube.com/watch?v=d6lSb7Waqzg",
+    "videoId": "d6lSb7Waqzg",
+    "sourceTitle": "SUKHAVATI - Beyond Heaven, Land of Boundless Light",
+    "thumbnail": "./assets/works/d6lSb7Waqzg.jpg",
+    "viewCount": 604,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "FATAL EMBRACE",
+    "subtitle": "FATAL EMBRACE – The Forbidden Rhythm of Two Souls",
+    "url": "https://www.youtube.com/watch?v=cXGcm4Vhu0E",
+    "videoId": "cXGcm4Vhu0E",
+    "sourceTitle": "FATAL EMBRACE – The Forbidden Rhythm of Two Souls",
+    "thumbnail": "./assets/works/cXGcm4Vhu0E.jpg",
+    "viewCount": 584,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "NEON VICE",
+    "subtitle": "NEON VICE – Dark Rhythm · Sensory Alignment",
+    "url": "https://www.youtube.com/watch?v=TgxOc_JROnM",
+    "videoId": "TgxOc_JROnM",
+    "sourceTitle": "NEON VICE – Dark Rhythm · Sensory Alignment",
+    "thumbnail": "./assets/works/TgxOc_JROnM.jpg",
+    "viewCount": 581,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "NEON JANGDAN",
+    "subtitle": "NEON JANGDAN – Where Korean Rhythms Meet Cyber Bass",
+    "url": "https://www.youtube.com/watch?v=sYhCqEW-qYU",
+    "videoId": "sYhCqEW-qYU",
+    "sourceTitle": "NEON JANGDAN – Where Korean Rhythms Meet Cyber Bass",
+    "thumbnail": "./assets/works/sYhCqEW-qYU.jpg",
+    "viewCount": 530,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "DEATHBREAK",
+    "subtitle": "DEATHBREAK – Break Beyond the Boundary",
+    "url": "https://www.youtube.com/watch?v=eguK5I3rgCw",
+    "videoId": "eguK5I3rgCw",
+    "sourceTitle": "DEATHBREAK – Break Beyond the Boundary",
+    "thumbnail": "./assets/works/eguK5I3rgCw.jpg",
+    "viewCount": 528,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "DHARMA OVERFLOW",
+    "subtitle": "DHARMA OVERFLOW – When the Wheel Turns",
+    "url": "https://www.youtube.com/watch?v=hbHE1tT7hbE",
+    "videoId": "hbHE1tT7hbE",
+    "sourceTitle": "DHARMA OVERFLOW – When the Wheel Turns",
+    "thumbnail": "./assets/works/hbHE1tT7hbE.jpg",
+    "viewCount": 527,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "CRIMSON MERGE",
+    "subtitle": "CRIMSON MERGE — The Forbidden Pulse",
+    "url": "https://www.youtube.com/watch?v=d7aowD1-1cI",
+    "videoId": "d7aowD1-1cI",
+    "sourceTitle": "CRIMSON MERGE — The Forbidden Pulse",
+    "thumbnail": "./assets/works/d7aowD1-1cI.jpg",
+    "viewCount": 513,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "PUREGUARD",
+    "subtitle": "PUREGUARD - Guide to the Pure Land",
+    "url": "https://www.youtube.com/watch?v=OaoF6jE-QP4",
+    "videoId": "OaoF6jE-QP4",
+    "sourceTitle": "PUREGUARD - Guide to the Pure Land",
+    "thumbnail": "./assets/works/OaoF6jE-QP4.jpg",
+    "viewCount": 484,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "NEURAL BIND",
+    "subtitle": "NEURAL BIND — Pleasure Engineered to Take Over",
+    "url": "https://www.youtube.com/watch?v=MPEIea7dOZA",
+    "videoId": "MPEIea7dOZA",
+    "sourceTitle": "NEURAL BIND — Pleasure Engineered to Take Over",
+    "thumbnail": "./assets/works/MPEIea7dOZA.jpg",
+    "viewCount": 479,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "NOT SWEPT AWAY",
+    "subtitle": "NOT SWEPT AWAY – Death Can’t Shake This Mind",
+    "url": "https://www.youtube.com/watch?v=OhhZk2RlK6Q",
+    "videoId": "OhhZk2RlK6Q",
+    "sourceTitle": "NOT SWEPT AWAY – Death Can’t Shake This Mind",
+    "thumbnail": "./assets/works/OhhZk2RlK6Q.jpg",
+    "viewCount": 464,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "DIAMOND RESONANCE",
+    "subtitle": "DIAMOND RESONANCE — The Signal That Rewrites Time",
+    "url": "https://www.youtube.com/watch?v=G4JZJn8G_Eo",
+    "videoId": "G4JZJn8G_Eo",
+    "sourceTitle": "DIAMOND RESONANCE — The Signal That Rewrites Time",
+    "thumbnail": "./assets/works/G4JZJn8G_Eo.jpg",
+    "viewCount": 417,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "ECSTASY",
+    "subtitle": "ECSTASY — Wanting Never Ends",
+    "url": "https://www.youtube.com/watch?v=L-E-V77qgos",
+    "videoId": "L-E-V77qgos",
+    "sourceTitle": "ECSTASY — Wanting Never Ends",
+    "thumbnail": "./assets/works/L-E-V77qgos.jpg",
+    "viewCount": 400,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "[비공개 진실] '유아독존'의 진짜 의미 ⚡ 80억겁 업장소멸 랩메탈",
+    "subtitle": "[비공개 진실] '유아독존'의 진짜 의미 ⚡ 80억겁 업장소멸 랩메탈 | Hidden Truth: Destroy 8 Billion Kalpas",
+    "url": "https://www.youtube.com/watch?v=43BwjOBpdug",
+    "videoId": "43BwjOBpdug",
+    "sourceTitle": "[비공개 진실] '유아독존'의 진짜 의미 ⚡ 80억겁 업장소멸 랩메탈 | Hidden Truth: Destroy 8 Billion Kalpas",
+    "thumbnail": "./assets/works/43BwjOBpdug.jpg",
+    "viewCount": 393,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "OVERLOAD",
+    "subtitle": "OVERLOAD — The Pressure Ritual",
+    "url": "https://www.youtube.com/watch?v=5KL1CfyQusk",
+    "videoId": "5KL1CfyQusk",
+    "sourceTitle": "OVERLOAD — The Pressure Ritual",
+    "thumbnail": "./assets/works/5KL1CfyQusk.jpg",
+    "viewCount": 393,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "RED FUSION",
+    "subtitle": "RED FUSION — The Heatflow Ritual",
+    "url": "https://www.youtube.com/watch?v=KxCB_N3SFtU",
+    "videoId": "KxCB_N3SFtU",
+    "sourceTitle": "RED FUSION — The Heatflow Ritual",
+    "thumbnail": "./assets/works/KxCB_N3SFtU.jpg",
+    "viewCount": 376,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "FINAL GATE",
+    "subtitle": "FINAL GATE – Cyberpunk Dark Trance | Beyond Desire & Fear",
+    "url": "https://www.youtube.com/watch?v=JRdgo57qAxk",
+    "videoId": "JRdgo57qAxk",
+    "sourceTitle": "FINAL GATE – Cyberpunk Dark Trance | Beyond Desire & Fear",
+    "thumbnail": "./assets/works/JRdgo57qAxk.jpg",
+    "viewCount": 361,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "BODHI MATRIX",
+    "subtitle": "BODHI MATRIX - Control Spacetime & Reality | Mahakaruna",
+    "url": "https://www.youtube.com/watch?v=3jM_4HbkToQ",
+    "videoId": "3jM_4HbkToQ",
+    "sourceTitle": "BODHI MATRIX - Control Spacetime & Reality | Mahakaruna",
+    "thumbnail": "./assets/works/3jM_4HbkToQ.jpg",
+    "viewCount": 355,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "DOMINION",
+    "subtitle": "DOMINION — The Pulse That Claims the Room",
+    "url": "https://www.youtube.com/watch?v=0Mr8uI2HBxk",
+    "videoId": "0Mr8uI2HBxk",
+    "sourceTitle": "DOMINION — The Pulse That Claims the Room",
+    "thumbnail": "./assets/works/0Mr8uI2HBxk.jpg",
+    "viewCount": 333,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "PRAJNA GATE",
+    "subtitle": "PRAJNA GATE — A Cyber-Ritual for Inner Awareness",
+    "url": "https://www.youtube.com/watch?v=Q73OK4Rj0Yg",
+    "videoId": "Q73OK4Rj0Yg",
+    "sourceTitle": "PRAJNA GATE — A Cyber-Ritual for Inner Awareness",
+    "thumbnail": "./assets/works/Q73OK4Rj0Yg.jpg",
+    "viewCount": 315,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "NEON ENGINE",
+    "subtitle": "[POV] NEON ENGINE - Control Spacetime & Speed | Brutal Industrial",
+    "url": "https://www.youtube.com/watch?v=Xq4kaycDOWI",
+    "videoId": "Xq4kaycDOWI",
+    "sourceTitle": "[POV] NEON ENGINE - Control Spacetime & Speed | Brutal Industrial",
+    "thumbnail": "./assets/works/Xq4kaycDOWI.jpg",
+    "viewCount": 313,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "SITATA PATRA",
+    "subtitle": "ŚITĀTA PĀTRA – Crown Light Engaged. | Cyberpunk EDM",
+    "url": "https://www.youtube.com/watch?v=ZJjG1p8VDo0",
+    "videoId": "ZJjG1p8VDo0",
+    "sourceTitle": "ŚITĀTA PĀTRA – Crown Light Engaged. | Cyberpunk EDM",
+    "thumbnail": "./assets/works/ZJjG1p8VDo0.jpg",
+    "viewCount": 305,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "Cyber-Jazz EBM: \"NIGHT DRIVE\" 🌆 Deep Focus (140 BPM)",
+    "subtitle": "[4K 60FPS] Cyber-Jazz EBM: \"NIGHT DRIVE\" 🌆 Deep Focus (140 BPM)",
+    "url": "https://www.youtube.com/watch?v=BC8wjguydOM",
+    "videoId": "BC8wjguydOM",
+    "sourceTitle": "[4K 60FPS] Cyber-Jazz EBM: \"NIGHT DRIVE\" 🌆 Deep Focus (140 BPM)",
+    "thumbnail": "./assets/works/BC8wjguydOM.jpg",
+    "viewCount": 299,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "AUDIO",
+    "title": "NEON NIGHTS (Official Audio)",
+    "subtitle": "MECHA-LIGHT - NEON NIGHTS (Official Audio)",
+    "url": "https://www.youtube.com/watch?v=ONMtLTDHlX0",
+    "videoId": "ONMtLTDHlX0",
+    "sourceTitle": "MECHA-LIGHT - NEON NIGHTS (Official Audio)",
+    "thumbnail": "./assets/works/ONMtLTDHlX0.jpg",
+    "viewCount": 253,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
+  },
+  {
+    "type": "MUSIC VIDEO",
+    "title": "PARIS NEON ⚡ Ultimate Cyberpunk Industrial EDM (4K Experience)",
+    "subtitle": "PARIS NEON ⚡ Ultimate Cyberpunk Industrial EDM (4K Experience)",
+    "url": "https://www.youtube.com/watch?v=b_B-dZYYZVo",
+    "videoId": "b_B-dZYYZVo",
+    "sourceTitle": "PARIS NEON ⚡ Ultimate Cyberpunk Industrial EDM (4K Experience)",
+    "thumbnail": "./assets/works/b_B-dZYYZVo.jpg",
+    "viewCount": 201,
+    "viewsCheckedOn": "2026-10-27",
+    "viewCountSource": "YouTube public display (may be rounded)"
   }
 ]
