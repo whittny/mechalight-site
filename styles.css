@@ -428,14 +428,16 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   }
   .hero-copy h1{
     order:2;
-    font-size:clamp(48px,13vw,68px);
-    line-height:1.06;
-    margin:0 auto 6px;
+    position:relative;
+    z-index:4;
+    font-size:clamp(46px,13vw,66px);
+    line-height:1.04;
+    margin:0 auto;
     letter-spacing:.02em;
   }
   .hero-copy .title-code{
     display:inline-block;
-    margin:6px auto 0;
+    margin:4px auto 0;
     font-size:11px;
     color:#c9ab7f;
   }
@@ -448,11 +450,12 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     bottom:auto!important;
     width:100%!important;
     max-width:390px!important;
-    height:350px!important;
-    min-height:350px!important;
-    margin:6px auto 16px!important;
+    height:330px!important;
+    min-height:330px!important;
+    margin:-46px auto 10px!important;
     z-index:2;
     transform:none!important;
+    pointer-events:none;
   }
   .hero-cockpit .three-reactor .hud-scene{
     position:absolute;
@@ -460,33 +463,28 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     width:100%;
     height:100%;
     border-radius:4px;
-    background:#010206;
-    -webkit-mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 68%,rgba(0,0,0,0) 100%);
-    mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 68%,rgba(0,0,0,0) 100%);
+    background:transparent;
+    -webkit-mask-image:radial-gradient(circle at 50% 55%,rgba(0,0,0,1) 70%,rgba(0,0,0,0) 100%);
+    mask-image:radial-gradient(circle at 50% 55%,rgba(0,0,0,1) 70%,rgba(0,0,0,0) 100%);
   }
-  .hero-cockpit .three-reactor .reactor-label{
-    top:8px;
-    left:12px;
-    right:12px;
-    font-size:7px;
-    text-align:left;
-    display:flex;
-    justify-content:space-between;
-    padding:4px 0;
-    border-bottom:1px solid rgba(59,124,168,0.25);
+  .hero-cockpit .three-reactor .reactor-label,
+  .hero-cockpit .hud-callout-top,
+  .hero-cockpit .hud-callout-bottom{
+    display:none!important;
   }
   .hero-cockpit .three-reactor .reactor-footer{
-    bottom:8px;
+    bottom:6px;
     left:12px;
     right:12px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:6px 12px;
+    padding:5px 12px;
     background:rgba(6,16,27,0.78);
     backdrop-filter:blur(8px);
-    border:1px solid rgba(57,103,140,0.5);
+    border:1px solid rgba(57,103,140,0.45);
     border-radius:3px;
+    pointer-events:auto;
   }
   .hero-cockpit .reactor-footer>span{
     display:inline-block;
@@ -496,23 +494,14 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   .hero-cockpit .overdrive-btn{
     font-size:8px;
     padding:4px 8px;
-  }
-  .hero-cockpit .hud-callout-top{
-    right:6%;
-    top:18%;
-    font-size:5px;
-  }
-  .hero-cockpit .hud-callout-bottom{
-    left:6%;
-    bottom:18%;
-    font-size:5px;
+    pointer-events:auto;
   }
   .hero-copy .lead{
     order:4;
     max-width:330px;
     font-size:12px;
-    line-height:1.6;
-    margin:0 auto 16px;
+    line-height:1.55;
+    margin:0 auto 14px;
     color:#b2c7d9;
     text-shadow:0 2px 8px #02060e;
   }

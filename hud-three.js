@@ -349,10 +349,10 @@ function initHUD(renderer, host) {
     assembly.rotation.x+=((-0.72+axis.x+driftX-pointer.y*.50)-assembly.rotation.x)*.055;
     assembly.rotation.y+=((.04+axis.y+driftY+pointer.x*.68)-assembly.rotation.y)*.055;
     assembly.rotation.z+=((-.36+axis.z+Math.sin(elapsed*.13)*.025-pointer.x*.10)-assembly.rotation.z)*.055;
-    assembly.position.y=-.05+Math.sin(elapsed*.45)*.065;
     const compact = host.clientWidth < 650;
-    assembly.position.x=compact?0:.65;
-    camera.position.z=(compact?10.2:8.1)+Math.sin(elapsed*.22)*.10;
+    assembly.position.x = compact ? 0 : .65;
+    assembly.position.y = (compact ? 0.24 : -.05) + Math.sin(elapsed*.45)*.065;
+    camera.position.z = (compact ? 9.8 : 8.1) + Math.sin(elapsed*.22)*.10;
     dof.uniforms.focus.value=camera.position.z;;
     particles.rotation.z=Math.sin(elapsed*.08)*.06;
     heart.position.z=.05;
