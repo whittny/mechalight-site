@@ -317,6 +317,8 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   const reactor = document.querySelector('.reactor');
   const drive = document.getElementById('overdriveBtn');
   const field = document.getElementById('energyField');
+  // Phones skip the full-screen particle layer; repainting it every frame competes with scrolling.
+  const lite = window.matchMedia('(max-width: 700px)');
   const context = field?.getContext('2d');
   let paused = reduce.matches;
   let boosted = false;
@@ -362,10 +364,12 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
       button.setAttribute('aria-label', paused ? 'Resume visual motion' : 'Pause visual motion');
     }
     cancelAnimationFrame(frame); frame = 0; last = 0;
-    if (!paused && !document.hidden && context) frame = requestAnimationFrame(paint);
+    if (lite.matches && context) context.clearRect(0, 0, width, height);
+    if (!paused && !lite.matches && !document.hidden && context) frame = requestAnimationFrame(paint);
   }
   button?.addEventListener('click', () => { paused = !paused; syncMotion(); });
   reduce.addEventListener('change', () => { paused = reduce.matches; syncMotion(); });
+  lite.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   drive?.addEventListener('click', () => {
     boosted = !boosted; root.classList.toggle('overdrive', boosted);
@@ -388,9 +392,11 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
     pointer.y = event.clientY / window.innerHeight;
   }, {passive: true});
   let scrollQueued = false;
+  // Set on the bar itself: a custom property on <html> would restyle the whole page every scroll frame.
+  const progress = document.querySelector('.scroll-progress');
   function updateScroll() {
     const distance = root.scrollHeight - window.innerHeight;
-    root.style.setProperty('--scroll', distance > 0 ? Math.min(1, window.scrollY / distance) : 0);
+    progress?.style.setProperty('--scroll', distance > 0 ? Math.min(1, window.scrollY / distance) : 0);
     scrollQueued = false;
   }
   window.addEventListener('scroll', () => {
@@ -563,22 +569,25 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   reactor.before(anchor);
   // Match the CSS breakpoint; innerWidth grows with the layout viewport on some mobile browsers.
   const mobileQuery=matchMedia('(max-width:700px)');
-  let docked=false,queued=false;
+  let docked=false,queued=false,lastHeader=-1;
+  const written={};
+  // Writing an unchanged value is free, but a changed one restyles everything that inherits it.
+  function setVar(el,name,value){if(written[name]===value)return;written[name]=value;el.style.setProperty(name,value);}
   function rememberOriginalScene(){
     const rect=reactor.getBoundingClientRect();
     const scene=reactor.querySelector('.hud-scene');
     const sceneRect=scene?.getBoundingClientRect();
     if(!sceneRect||sceneRect.width<1||sceneRect.height<1)return;
-    dock.style.setProperty('--original-hud-width',scene.clientWidth+'px');
-    dock.style.setProperty('--original-hud-height',scene.clientHeight+'px');
-    dock.style.setProperty('--original-hud-x',rect.left+'px');
+    setVar(dock,'--original-hud-width',scene.clientWidth+'px');
+    setVar(dock,'--original-hud-height',scene.clientHeight+'px');
+    setVar(dock,'--original-hud-x',rect.left+'px');
     // Keep the original large disc centered behind the narrow viewing window.
-    dock.style.setProperty('--original-hud-top',(38-scene.clientHeight*.5)+'px');
+    setVar(dock,'--original-hud-top',(38-scene.clientHeight*.5)+'px');
   }
   function update(){
     queued=false;
     const headerHeight=header.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
+    if(headerHeight!==lastHeader){lastHeader=headerHeight;document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');}
     const isMobile=mobileQuery.matches;
     const heroRect=hero.getBoundingClientRect();
     const next=isMobile
