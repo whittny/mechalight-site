@@ -328,7 +328,8 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   const pointer = { x: 0.5, y: 0.5 };
 
   function sizeField() {
-    if (!field || !context) return;
+    if (!field || !context || lite.matches) return;
+    if (window.innerWidth === width && window.innerHeight === height) return;
     width = window.innerWidth; height = window.innerHeight;
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     field.width = Math.round(width * dpr); field.height = Math.round(height * dpr);
@@ -427,16 +428,18 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   if (!iframe || !button) return;
   let player = null, ready = false, started = false, timer = 0, failed = false;
   const english = () => document.documentElement.lang === 'en';
+  const setText = (el, text) => { if (el.textContent !== text) el.textContent = text; };
+  const setAttr = (el, name, value) => { if (el.getAttribute(name) !== value) el.setAttribute(name, value); };
   function sync() {
     if (!ready) {
       label.textContent = failed ? (english() ? 'Use player sound control ↓' : '영상에서 소리를 켜 주세요 ↓') : (english() ? 'Connecting player…' : '플레이어 연결 중…');
       return;
     }
     const audible = !player.isMuted() && player.getVolume() > 0;
-    button.setAttribute('aria-pressed', String(audible));
+    setAttr(button, 'aria-pressed', String(audible));
     button.classList.toggle('sound-active', audible);
-    label.textContent = audible ? (english() ? 'Sound on · Mute' : '소리 켜짐 · 음소거') : (english() ? 'Enable spatial sound ↗' : '입체 음향 켜기 ↗');
-    button.setAttribute('aria-label', audible ? (english() ? 'Mute video sound' : '영상 소리 끄기') : (english() ? 'Enable video spatial sound' : '영상 입체 음향 켜기'));
+    setText(label, audible ? (english() ? 'Sound on · Mute' : '소리 켜짐 · 음소거') : (english() ? 'Enable spatial sound ↗' : '입체 음향 켜기 ↗'));
+    setAttr(button, 'aria-label', audible ? (english() ? 'Mute video sound' : '영상 소리 끄기') : (english() ? 'Enable video spatial sound' : '영상 입체 음향 켜기'));
   }
   function connect() {
     if (!window.YT?.Player || player) return;
@@ -472,8 +475,19 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   new MutationObserver(sync).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
   window.addEventListener('pagehide', () => window.clearInterval(timer), {once:true});
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { loadPlayer(); observer.disconnect(); } }, {threshold:0.15});
-    observer.observe(iframe);
+    // The player is heavy to boot, so it starts only once scrolling rests near it, never mid-swipe.
+    let near = false, rest = 0;
+    const loadWhenResting = () => { window.clearTimeout(rest); rest = window.setTimeout(() => { if (near) loadPlayer(); }, 220); };
+    const onScroll = () => { if (started) window.removeEventListener('scroll', onScroll); else if (near) loadWhenResting(); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    new IntersectionObserver(entries => { near = entries.some(entry => entry.isIntersecting); if (near && !started) loadWhenResting(); }, {rootMargin:'400px 0px'}).observe(iframe);
+    // A muted loop that nobody can see only costs decoding while the page scrolls.
+    let autoPaused = false;
+    new IntersectionObserver(entries => {
+      if (!ready) return;
+      if (!entries[0].isIntersecting) { if (player.isMuted() && player.getPlayerState() === 1) { player.pauseVideo(); autoPaused = true; } }
+      else if (autoPaused) { autoPaused = false; player.playVideo(); }
+    }).observe(iframe);
   } else loadPlayer();
 })();
 

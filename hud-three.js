@@ -232,7 +232,8 @@ function initHUD(renderer, host) {
   // aperture 0 / maxblur 0 never blurs, but the pass still re-renders the scene for depth every frame.
   dof.enabled=false;
   composer.addPass(new OutputPass());
-  let active=false,frame=0,last=0,disposed=false,elapsed=0,lastDraw=0;
+  let active=false,frame=0,last=0,disposed=false,elapsed=0,lastDraw=0,lastScroll=-1e9,sized='';
+  addEventListener('scroll',()=>{lastScroll=performance.now();},{passive:true});
   const pointer={x:0,y:0};
   // Smooth random orientation targets, sampled in animation time so pausing freezes the axis.
   const randomAxis=()=>({x:(Math.random()-.5)*.30,y:(Math.random()-.5)*.36,z:(Math.random()-.5)*.22});
@@ -364,8 +365,8 @@ function initHUD(renderer, host) {
     bloom.strength=boost?tuning.bloomStrength*1.45:tuning.bloomStrength;
     composer.render();
   }
-  // While docked on a phone the strip is small; 30fps leaves the GPU free for smooth scrolling.
-  function tick(now){if(disposed)return;frame=requestAnimationFrame(tick);if(lite.matches&&document.documentElement.classList.contains('hero-is-docked')&&now-lastDraw<32)return;lastDraw=now;const dt=Math.min(.04,(now-(last||now))/1000);last=now;render(dt);}
+  // On phones the scene drops to 30fps while docked or while a scroll is in progress, leaving the GPU to scrolling.
+  function tick(now){if(disposed)return;frame=requestAnimationFrame(tick);if(lite.matches&&(document.documentElement.classList.contains('hero-is-docked')||now-lastScroll<250)&&now-lastDraw<32)return;lastDraw=now;const dt=Math.min(.04,(now-(last||now))/1000);last=now;render(dt);}
   function sync(){
     cancelAnimationFrame(frame);frame=0;last=0;
     if(disposed)return;
@@ -373,7 +374,7 @@ function initHUD(renderer, host) {
     if((active||isDocked)&&!document.hidden&&!reduce.matches&&!document.documentElement.classList.contains('motion-paused'))frame=requestAnimationFrame(tick);
     else render(0);
   }
-  function resize(){const rect=host.getBoundingClientRect();const w=Math.max(1,rect.width),h=Math.max(1,rect.height);renderer.setPixelRatio(pixelRatio());composer.setPixelRatio?.(pixelRatio());renderer.setSize(w,h,false);composer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();render(0);}
+  function resize(){const rect=host.getBoundingClientRect();const w=Math.max(1,rect.width),h=Math.max(1,rect.height);const key=w+'x'+h+'@'+pixelRatio();if(key===sized)return;sized=key;renderer.setPixelRatio(pixelRatio());composer.setPixelRatio?.(pixelRatio());renderer.setSize(w,h,false);composer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();render(0);}
   const observer=new ResizeObserver(resize);observer.observe(host);
   const visibility=new IntersectionObserver(entries=>{
     const isDocked=document.documentElement.classList.contains('hero-is-docked');

@@ -974,14 +974,18 @@ footer.footer>div:first-child::after{content:'  //  SYSTEM ONLINE';color:#5f8aa5
 /* ==========================================================================
    Mobile scroll performance
    ========================================================================== */
-@keyframes hud-boot-lite{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media(max-width:700px){
   /* The fixed bars are ~95% opaque; live blur of the page scrolling beneath them costs every frame. */
   .header,.hero-dock{-webkit-backdrop-filter:none;backdrop-filter:none}
   #energyField{display:none}
-  /* Scroll-linked reveals stay on the compositor: opacity and transform only, no filter. */
+  /* Reveals only ever ran while scrolling down (elements entering from below); phones skip them so a
+     downward scroll is pure compositing, like an upward one. Decorative loops stop as well. */
   #v2a .v2a-pipeline li,#v2a .v2a-split .v2a-block,#v2a .v2a-road li,#v2a .v2a-eval div,
-  #works .work,#universe .feature,#tech .stack-col{animation-name:hud-boot-lite}
+  #works .work,#universe .feature,#tech .stack-col{animation:none}
+  #v2a .v2a-pipeline li::after{animation:none;display:none}
+  #v2a .v2a-road li.is-now::before{animation:none}
+  .motion-ready .section{transition:none}
+  .motion-ready .section.is-pending{opacity:1;transform:none}
 }
 /* Touch screens never show the hover foil; drop the blended layer entirely. */
 @media(hover:none){#works .work::after{display:none}}
