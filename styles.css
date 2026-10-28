@@ -633,3 +633,105 @@ html{background:var(--bg-color)}body{background:linear-gradient(90deg,#b5c9db03 
    A wider-than-device page makes mobile browsers grow the layout viewport, so fixed bars such as
    the hero dock slide out of view while scrolling down. Clip at the full-width wrapper instead. */
 @media(max-width:700px){html,body{overflow-x:clip}.main{overflow-x:clip}}
+
+/* ==========================================================================
+   CYBERPUNK HUD — V2A section sample (design preview)
+   CSS only, scoped to #v2a; markup and scripts are unchanged.
+   ========================================================================== */
+#v2a.v2a-flagship{
+  --hud-cyan:var(--neon-cyan);
+  --hud-red:var(--neon-red);
+  --hud-line:#58eaff2b;
+  --hud-line-strong:#58eaff70;
+  --hud-panel:linear-gradient(160deg,#0b1a26f0,#060c14f7 62%);
+  --hud-scan:repeating-linear-gradient(0deg,#58eaff06 0 1px,transparent 1px 3px);
+  --hud-cut:16px;
+  counter-reset:hudblock;
+}
+
+/* Headline: restrained chromatic split, still crisp for Korean text. */
+#v2a .flagship-statement{text-shadow:-1.5px 0 #ff37596b,1.5px 0 #58eaff6b,0 0 34px #58eaff26}
+#v2a .flagship-eyebrow>span:first-child{color:var(--hud-cyan);text-shadow:0 0 10px #58eaff80}
+#v2a .flagship-capabilities b{color:var(--hud-red);text-shadow:0 0 8px #ff375980}
+
+/* Block headings become HUD channel labels: // 0N + title + fading rail. */
+#v2a .v2a-h3{display:flex;align-items:center;gap:14px;font:600 1.15rem/1.2 var(--font-display);letter-spacing:.04em;color:#eaf8ff;counter-increment:hudblock}
+#v2a .v2a-h3::before{content:'// 0' counter(hudblock);font:500 10px/1 var(--font-hud);letter-spacing:.2em;color:var(--hud-red);text-shadow:0 0 10px #ff3759aa}
+#v2a .v2a-h3::after{content:'';flex:1;min-width:24px;height:1px;background:linear-gradient(90deg,var(--hud-line-strong),transparent)}
+
+/* Pipeline: chamfered glass panels with outlined step numerals and a slow scan sweep. */
+#v2a .v2a-pipeline{gap:18px}
+#v2a .v2a-pipeline li{
+  --d:calc(var(--hud-cut) * .7071);
+  isolation:isolate;overflow:hidden;border:0;border-radius:0;padding:24px 24px 26px;
+  clip-path:polygon(0 0,calc(100% - var(--hud-cut)) 0,100% var(--hud-cut),100% 100%,var(--hud-cut) 100%,0 calc(100% - var(--hud-cut)));
+  background:
+    linear-gradient(225deg,transparent calc(var(--d) - 1px),var(--hud-line-strong) calc(var(--d) - 1px) var(--d),transparent var(--d)),
+    linear-gradient(45deg,transparent calc(var(--d) - 1px),var(--hud-line-strong) calc(var(--d) - 1px) var(--d),transparent var(--d)),
+    var(--hud-scan),var(--hud-panel);
+  box-shadow:inset 0 0 0 1px var(--hud-line),inset 0 1px 0 #58eaff40;
+  transition:translate .35s var(--ease,ease),box-shadow .35s;
+}
+#v2a .v2a-pipeline li:hover{translate:0 -3px;--hud-line:#58eaff66;box-shadow:inset 0 0 0 1px var(--hud-line),inset 0 1px 0 #58eaffaa,inset 0 0 40px #58eaff12}
+#v2a .v2a-pipeline li::before{
+  content:'0' counter(step);display:block;width:auto;height:auto;margin:0 0 14px;border:0;border-radius:0;background:none;
+  font:700 34px/1 var(--font-hud);letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px var(--hud-cyan);
+  filter:drop-shadow(0 0 6px #58eaff66);
+}
+#v2a .v2a-pipeline li:last-child::before{background:none;-webkit-text-stroke-color:var(--hud-red);filter:drop-shadow(0 0 6px #ff375977)}
+#v2a .v2a-pipeline li::after{content:'';position:absolute;inset:0 0 auto;height:45%;z-index:-1;pointer-events:none;background:linear-gradient(180deg,transparent,#58eaff12 55%,transparent);animation:hud-sweep 6s linear infinite;animation-delay:calc(var(--i,0) * -2s)}
+#v2a .v2a-pipeline li:nth-child(2){--i:1}#v2a .v2a-pipeline li:nth-child(3){--i:2}
+#v2a .v2a-pipeline h4{color:#f2fbff;text-shadow:0 0 14px #58eaff33}
+@keyframes hud-sweep{from{transform:translateY(-110%)}to{transform:translateY(260%)}}
+
+/* Roadmap + evaluation: framed HUD consoles with corner brackets and scanlines. */
+#v2a .v2a-split .v2a-block{
+  --b:linear-gradient(var(--hud-cyan),var(--hud-cyan));
+  position:relative;border:1px solid var(--hud-line);border-radius:0;padding:30px;
+  background:
+    var(--b) top left/18px 1px no-repeat,var(--b) top left/1px 18px no-repeat,
+    var(--b) top right/18px 1px no-repeat,var(--b) top right/1px 18px no-repeat,
+    var(--b) bottom left/18px 1px no-repeat,var(--b) bottom left/1px 18px no-repeat,
+    var(--b) bottom right/18px 1px no-repeat,var(--b) bottom right/1px 18px no-repeat,
+    var(--hud-scan),var(--hud-panel);
+  background-origin:border-box;
+  box-shadow:0 0 0 1px #02060d,0 18px 50px #0007;
+}
+
+/* Roadmap rail: lit up to the current stage, diamond nodes, pulsing NOW node. */
+#v2a .v2a-road{position:relative;border-left:0;padding-left:30px}
+#v2a .v2a-road::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--hud-red) 0 18%,var(--hud-line-strong) 18% 100%);box-shadow:0 0 10px #ff375940}
+#v2a .v2a-road li::before{left:-28px;top:.5rem;width:10px;height:10px;border-radius:0;transform:rotate(45deg);background:#060c14;border:1px solid var(--hud-line-strong)}
+#v2a .v2a-road li.is-now::before{background:var(--hud-red);border-color:var(--hud-red);box-shadow:0 0 0 4px #ff375926,0 0 14px var(--hud-red);animation:hud-pulse 2.4s ease-in-out infinite}
+#v2a .v2a-road li.is-now h4{color:#ff6b84;text-shadow:0 0 12px #ff375966}
+#v2a .v2a-road li.is-now h4::after{content:'NOW';margin-left:10px;padding:2px 7px;vertical-align:2px;font:600 9px/1.4 var(--font-hud);letter-spacing:.18em;color:#06101a;background:var(--hud-red);box-shadow:0 0 12px #ff375988}
+@keyframes hud-pulse{50%{box-shadow:0 0 0 7px #ff375900,0 0 22px var(--hud-red)}}
+
+/* Evaluation readout rows. */
+#v2a .v2a-eval div{border-bottom:1px dashed var(--hud-line);transition:background .25s}
+#v2a .v2a-eval div:first-child{border-top:1px solid var(--hud-line-strong)}
+#v2a .v2a-eval div:hover{background:linear-gradient(90deg,#58eaff12,transparent 70%)}
+#v2a .v2a-eval dt{color:var(--hud-cyan);text-shadow:0 0 10px #58eaff55}
+#v2a .v2a-eval dt::before{content:'▸ ';color:var(--hud-red)}
+
+/* Use cases as terminal lines. */
+#v2a .v2a-use{list-style:none;padding-left:0}
+#v2a .v2a-use li{padding:8px 12px;margin-bottom:6px;border-left:2px solid var(--hud-line-strong);background:linear-gradient(90deg,#58eaff0d,transparent 80%)}
+#v2a .v2a-use li::before{content:'>';margin-right:10px;font:600 12px var(--font-mono);color:var(--hud-red)}
+
+#v2a .v2a-note{border-top:1px solid var(--hud-line);font-size:.78rem;letter-spacing:.01em}
+
+/* Scroll-linked boot-up where supported; static elsewhere and for reduced motion. */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    #v2a .v2a-pipeline li,#v2a .v2a-split .v2a-block,#v2a .v2a-road li,#v2a .v2a-eval div{animation:hud-boot linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+    #v2a .v2a-pipeline li::after{animation:hud-sweep 6s linear infinite;animation-delay:calc(var(--i,0) * -2s)}
+  }
+}
+@keyframes hud-boot{from{opacity:0;transform:translateY(22px);filter:brightness(2.4) saturate(0)}60%{opacity:.85;filter:brightness(1.4)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:680px){
+  #v2a .v2a-pipeline li{padding:20px 20px 22px}
+  #v2a .v2a-pipeline li::before{font-size:28px;margin-bottom:10px}
+  #v2a .v2a-split .v2a-block{padding:22px 18px}
+  #v2a .v2a-h3::before{font-size:9px}
+}
