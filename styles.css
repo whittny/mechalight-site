@@ -604,12 +604,47 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
 .hero-dock .reactor.three-reactor{top:-338px!important;left:0!important;width:980px!important;height:740px!important}
 .hero-dock .dock-wordmark,.hero-dock .dock-caption{z-index:5;text-shadow:0 2px 8px #02060d,0 0 18px #02060d}
 @media(max-width:1000px) and (min-width:701px){.hero-dock .dock-visual{right:-12%;width:690px}.hero-dock .reactor.three-reactor{top:-245px!important;width:740px!important;height:550px!important}}
-@media(max-width:700px){.hero-dock .dock-visual{right:-18%;width:350px;opacity:.85;mask-image:linear-gradient(90deg,transparent,#000 40%,#000 85%,transparent)}.hero-dock .reactor.three-reactor{top:-190px!important;left:0!important;width:550px!important;height:440px!important}}
-
 /* The dock is a window into the original-size scene, not a scaled mini HUD. */
 .hero-dock .dock-visual{position:fixed;left:0;right:0;top:0;width:100%;height:100%;opacity:1;mask-image:linear-gradient(90deg,transparent 12%,#000 42%,#000 93%,transparent);pointer-events:none}
 .hero-dock .reactor.three-reactor{left:var(--original-hud-x,24vw)!important;top:var(--original-hud-top,-340px)!important;width:var(--original-hud-width,1100px)!important;height:var(--original-hud-height,740px)!important}
-@media(max-width:700px){.hero-dock .dock-visual{left:0;right:0;width:100%;opacity:.9;mask-image:linear-gradient(90deg,transparent 20%,#000 57%,#000 93%,transparent)}.hero-dock .reactor.three-reactor{left:var(--original-hud-x,-28vw)!important;top:var(--original-hud-top,-240px)!important;width:var(--original-hud-width,540px)!important;height:var(--original-hud-height,540px)!important}}
+@media(max-width:700px){
+  .hero-dock{height:60px;padding:0 5%;gap:10px}
+  .hero-dock .dock-caption{display:none!important}
+  .hero-dock .dock-visual{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:0!important;
+    bottom:0!important;
+    width:100%!important;
+    height:100%!important;
+    opacity:1!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    overflow:clip!important;
+    clip-path:none!important;
+    pointer-events:none;
+  }
+  .hero-dock .reactor.three-reactor{
+    position:absolute!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    top:-140px!important;
+    width:100vw!important;
+    max-width:440px!important;
+    height:340px!important;
+    min-height:340px!important;
+    pointer-events:none!important;
+  }
+  .hero-dock .reactor .hud-scene{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+  }
+}
 
 /* A small shadow gap separates the cropped HUD from the scrolling content. */
 .hero-dock{overflow:visible;box-shadow:0 7px 18px #0005;border-bottom-color:#314a6255}
@@ -638,7 +673,7 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
 .hero-dock .dock-caption{font-size:8px;letter-spacing:.16em;color:#94aabd}
 @media(min-width:1600px){.hero-cockpit{min-height:800px;padding-top:110px}}
 @media(max-width:1000px) and (min-width:701px){.header .brand-name{font-size:13px}.header .official-brand-mark{width:36px;height:36px}.header .brand{gap:9px}.hero-cockpit{min-height:680px;padding-top:85px}}
-@media(max-width:700px){.header{padding-left:6%;padding-right:6%}.header .brand-name{font-size:13px}.header .official-brand-mark{width:36px;height:36px}.header .brand{gap:10px}.hero-dock .dock-caption{display:block;font-size:6px;max-width:120px;line-height:1.6}}
+@media(max-width:700px){.header{padding-left:6%;padding-right:6%}.header .brand-name{font-size:13px}.header .official-brand-mark{width:36px;height:36px}.header .brand{gap:10px}.hero-dock .dock-caption{display:none!important}}
 
 /* Lift the opening composition closer to the header. */
 .hero{padding-top:20px}
