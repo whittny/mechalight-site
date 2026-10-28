@@ -578,19 +578,17 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
     const headerHeight=header.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
     const isMobile=window.innerWidth<=700;
+    const heroRect=hero.getBoundingClientRect();
     const next=isMobile
-      ?(anchor.getBoundingClientRect().top+380<=headerHeight)
-      :(hero.getBoundingClientRect().bottom<=headerHeight+24);
+      ?(docked?(window.scrollY>=170||heroRect.top<=-30):(window.scrollY>=220||heroRect.top<=-80))
+      :(docked?(heroRect.bottom<=headerHeight+48):(heroRect.bottom<=headerHeight+24));
     if(!docked)rememberOriginalScene();
     if(next===docked)return;
-    const prevW=reactor.clientWidth,prevH=reactor.clientHeight;
     docked=next;
     if(docked){slot.append(reactor);dock.inert=false;}
     else{anchor.after(reactor);dock.inert=true;}
     document.documentElement.classList.toggle('hero-is-docked',docked);
-    if(reactor.clientWidth!==prevW||reactor.clientHeight!==prevH){
-      window.dispatchEvent(new Event('resize'));
-    }
+    window.dispatchEvent(new Event('resize'));
   }
   function queue(){if(!queued){queued=true;requestAnimationFrame(update);}}
   window.addEventListener('scroll',queue,{passive:true});
