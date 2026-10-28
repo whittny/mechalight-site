@@ -40,7 +40,7 @@ const dict = {
     driveCorner: "코너링",
     driveLabCaption: "모드를 바꾸면 속도와 마찰, 소리의 좌우 이동을 시각적으로 탐색할 수 있습니다. 실제 차량 사운드와 입체 음향은 위 영상에서 소리를 켜고 감상해 주세요.",
 
-    kicker: "기계와 감각이 공명하는 사이버펑크 유니버스",
+    kicker: "AI와 감각이 공명하는 사이버펑크 유니버스",
     subtitle: "Rhythm-Driven Cinema & AI Creation",
     lead: "메카닉의 정밀함, 사이버펑크의 에너지. 음악 · 메타휴먼 · 시네마틱 · AI를 하나의 공명 시스템으로 연결합니다.",
     ctaWorks: "작업 보기",
