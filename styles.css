@@ -820,3 +820,81 @@ html{background:var(--bg-color)}body{background:linear-gradient(90deg,#b5c9db03 
   #works .work-title{margin:0 4px}
   #works .work-sub{margin:6px 4px 0;padding-top:6px}
 }
+
+/* ==========================================================================
+   CYBERPUNK HUD — featured video, drive lab, Contact and footer
+   CSS only; markup and scripts are unchanged.
+   ========================================================================== */
+#v2a .v2a-featured-video,#v2a .drive-lab,#contact .contact-card{
+  --b:linear-gradient(var(--neon-cyan),var(--neon-cyan));
+  --brackets:
+    var(--b) top left/22px 1px no-repeat,var(--b) top left/1px 22px no-repeat,
+    var(--b) top right/22px 1px no-repeat,var(--b) top right/1px 22px no-repeat,
+    var(--b) bottom left/22px 1px no-repeat,var(--b) bottom left/1px 22px no-repeat,
+    var(--b) bottom right/22px 1px no-repeat,var(--b) bottom right/1px 22px no-repeat;
+}
+
+/* Featured video: monitor frame with a live REC header. */
+#v2a .v2a-featured-video{position:relative;border-color:#58eaff30;background:linear-gradient(180deg,#0a1824,#060c14);box-shadow:0 0 0 1px #02060d,0 24px 60px #0008,0 0 60px #58eaff0d}
+#v2a .v2a-featured-video::after{content:'';position:absolute;inset:-1px;z-index:5;pointer-events:none;background:var(--brackets)}
+#v2a .v2a-video-heading{color:var(--neon-cyan);background:linear-gradient(90deg,#58eaff10,transparent 60%);border-bottom-color:#58eaff2b}
+#v2a .v2a-video-heading span:first-child::before{content:'';display:inline-block;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--neon-red);box-shadow:0 0 10px var(--neon-red);vertical-align:1px;animation:hud-blink 1.6s steps(2,start) infinite}
+#v2a .v2a-video-intro h3{text-shadow:-1px 0 #ff37595e,1px 0 #58eaff5e}
+#v2a .sound-invitation{border-bottom-color:#58eaff2b;background:repeating-linear-gradient(0deg,#58eaff05 0 1px,transparent 1px 3px)}
+#v2a .sound-eyebrow{color:var(--neon-red);text-shadow:0 0 10px #ff375977}
+#v2a .sound-toggle{border-radius:0;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+#v2a .v2a-video-frame{box-shadow:inset 0 0 0 1px #58eaff26}
+#v2a .v2a-featured-video figcaption{border-top:1px dashed #58eaff26;font-family:var(--font-body)}
+#v2a .v2a-featured-video figcaption a{font:600 10px var(--font-hud);letter-spacing:.14em;color:var(--neon-cyan);text-shadow:0 0 10px #58eaff66}
+@keyframes hud-blink{to{visibility:hidden}}
+
+/* Drive lab: instrument console. */
+#v2a .drive-lab{position:relative;border-color:#58eaff30;border-radius:0;box-shadow:0 0 0 1px #02060d,0 24px 60px #0008,0 0 70px #58eaff0f}
+#v2a .drive-lab::after{content:'';position:absolute;inset:0;z-index:6;pointer-events:none;background:var(--brackets)}
+#v2a .drive-lab-top{background:linear-gradient(90deg,#58eaff0e,transparent 55%);border-bottom:1px solid #58eaff22}
+#v2a .drive-eyebrow{color:var(--neon-cyan);text-shadow:0 0 10px #58eaff66}
+#v2a .drive-live{color:#ffb3c0}
+#v2a .drive-live i{background:var(--neon-red);box-shadow:0 0 10px var(--neon-red);animation:hud-blink 1.6s steps(2,start) infinite}
+#v2a .drive-speed strong{text-shadow:-2px 0 #ff375988,2px 0 #58eaff88,0 0 28px #58eaff55}
+#v2a .drive-console{background:repeating-linear-gradient(0deg,#58eaff05 0 1px,transparent 1px 3px),linear-gradient(180deg,#0d1b28,#081019)}
+#v2a .drive-mode{border-radius:0;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:background .25s,border-color .25s,box-shadow .25s}
+#v2a .drive-mode[aria-pressed=true]{background:linear-gradient(135deg,#123a4d,#0b1d2b);border-color:var(--neon-cyan);color:#eafcff;box-shadow:inset 0 0 26px #58eaff22,inset 0 -2px 0 var(--neon-cyan)}
+#v2a .drive-mode[aria-pressed=true]>span{color:var(--neon-red);text-shadow:0 0 8px #ff375999}
+#v2a .drive-signals>div>span::before{content:'// ';color:var(--neon-red)}
+#v2a .drive-pause{border-radius:0;font-family:var(--font-hud);letter-spacing:.14em;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+
+/* Contact: transmission console. */
+#contact .contact-card{
+  isolation:isolate;border:1px solid #58eaff30;border-top:1px solid #58eaff30;
+  background:var(--brackets),
+    radial-gradient(ellipse 60% 80% at 100% 0,#ff37591a,transparent 60%),
+    radial-gradient(ellipse 50% 70% at 0 100%,#58eaff14,transparent 60%),
+    repeating-linear-gradient(0deg,#58eaff05 0 1px,transparent 1px 3px),
+    linear-gradient(115deg,#0e1d2b,#070d16);
+  background-origin:border-box;
+  box-shadow:0 0 0 1px #02060d,0 30px 80px #000a,0 0 80px #58eaff10;
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));
+}
+#contact .contact-card::before{content:'CHANNEL OPEN';position:absolute;top:22px;right:40px;padding-left:16px;font:600 9px/1 var(--font-hud);letter-spacing:.2em;color:#9ff3ff;background:radial-gradient(circle at 4px 50%,#4dffb0 0 3px,transparent 3.5px);text-shadow:0 0 10px #58eaff88}
+#contact .h2{text-shadow:-2px 0 #ff37596b,2px 0 #58eaff6b,0 0 34px #58eaff2b}
+#contact .label{font-family:var(--font-hud);font-size:9px;letter-spacing:.2em}
+#contact .label::before{content:'// ';color:var(--neon-red)}
+#contact .value{display:inline-block;padding-bottom:4px;border-bottom:1px solid #58eaff40;transition:color .25s,text-shadow .25s,border-color .25s}
+#contact .value:hover{color:#fff;border-color:var(--neon-cyan);text-shadow:0 0 14px #58eaff88}
+#contact .input{border-radius:0;font-family:var(--font-mono);font-size:13px;caret-color:var(--neon-cyan);border-color:#58eaff33;background:repeating-linear-gradient(0deg,#58eaff05 0 1px,transparent 1px 3px),#040910;transition:border-color .25s,box-shadow .25s}
+#contact .input:focus{outline:none;border-color:var(--neon-cyan);box-shadow:0 0 0 1px var(--neon-cyan),0 0 22px #58eaff33}
+#contact .btn{border-radius:0;font-family:var(--font-hud);font-size:11px;letter-spacing:.14em;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+#contact .btn.primary{box-shadow:0 0 26px #58eaff55}
+#contact .contact-note{font-family:var(--font-mono);letter-spacing:.02em}
+
+/* Footer: system status bar under a neon horizon. */
+footer.footer{border-top:0;font-family:var(--font-mono)}
+footer.footer::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--neon-red) 25%,var(--neon-cyan) 75%,transparent);box-shadow:0 0 14px #58eaff88}
+footer.footer>div:first-child::before{content:'';display:inline-block;width:6px;height:6px;margin-right:10px;border-radius:50%;background:#4dffb0;box-shadow:0 0 10px #4dffb0;vertical-align:1px}
+footer.footer>div:first-child::after{content:'  //  SYSTEM ONLINE';color:#5f8aa5;letter-spacing:.14em}
+
+@media(max-width:700px){
+  #contact .contact-card{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+  #contact .contact-card::before{top:14px;right:24px;font-size:7px}
+  #v2a .drive-mode{clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+}
