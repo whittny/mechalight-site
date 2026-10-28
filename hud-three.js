@@ -351,7 +351,7 @@ function initHUD(renderer, host) {
     assembly.rotation.z+=((-.36+axis.z+Math.sin(elapsed*.13)*.025-pointer.x*.10)-assembly.rotation.z)*.055;
     const compact = host.clientWidth < 650;
     assembly.position.x = compact ? 0 : .65;
-    assembly.position.y = compact ? (-.22 + Math.sin(elapsed*.45)*.04) : (-.05 + Math.sin(elapsed*.45)*.065);
+    assembly.position.y = compact ? (-.28 + Math.sin(elapsed*.45)*.04) : (-.05 + Math.sin(elapsed*.45)*.065);
     camera.position.z = (compact ? 9.8 : 8.1) + Math.sin(elapsed*.22)*.10;
     dof.uniforms.focus.value=camera.position.z;;
     particles.rotation.z=Math.sin(elapsed*.08)*.06;

@@ -405,13 +405,13 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
 @media(min-width:1600px){.hero-cockpit{min-height:850px;padding-top:140px}.hero-copy h1{font-size:120px}}
 @media(max-width:1000px) and (min-width:701px){.hero-cockpit{min-height:680px;padding-top:100px}.hero-copy h1{font-size:74px}.hero-cockpit .hero-copy{width:65%}.hero-copy .lead{max-width:300px;font-size:12px}.hero-cockpit .three-reactor{left:15%;right:-19%}.hero-cockpit .reactor-label{right:23%}.hero-cockpit .reactor-footer{right:23%}}
 @media(max-width:700px){
-  .hero{padding-top:18px!important}
-  .hero-topline{padding-bottom:12px!important}
+  .hero{padding-top:14px!important}
+  .hero-topline{padding-bottom:10px!important}
   .hero-cockpit{
     position:relative!important;
     min-height:calc(100svh - 80px)!important;
     min-height:700px!important;
-    padding:24px 0 32px!important;
+    padding:16px 0 32px!important;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -422,7 +422,7 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   .hero-cockpit .three-reactor{
     position:absolute!important;
     left:50%!important;
-    top:28px!important;
+    top:52px!important;
     transform:translateX(-50%)!important;
     width:100vw!important;
     max-width:440px!important;
@@ -492,10 +492,10 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     pointer-events:auto;
   }
   .hero-copy .kicker{
-    font-size:10.5px;
+    font-size:10px;
     letter-spacing:.08em;
     max-width:95%;
-    margin:0 auto 12px!important;
+    margin:0 auto 8px!important;
     color:#a4c2d6;
     text-shadow:0 2px 8px #000;
   }
@@ -504,7 +504,7 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     z-index:6;
     font-size:clamp(50px,13.8vw,68px);
     line-height:1.02;
-    margin:0 auto 238px!important;
+    margin:0 auto 260px!important;
     letter-spacing:.02em;
   }
   .hero-copy .title-code{
