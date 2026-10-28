@@ -898,3 +898,75 @@ footer.footer>div:first-child::after{content:'  //  SYSTEM ONLINE';color:#5f8aa5
   #contact .contact-card::before{top:14px;right:24px;font-size:7px}
   #v2a .drive-mode{clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
 }
+
+/* ==========================================================================
+   CYBERPUNK HUD — SUKHAVATI showcase, Universe and Tech
+   CSS only; markup and scripts are unchanged.
+   ========================================================================== */
+.featured-showcase .hero-film,#universe,#tech{
+  --b:linear-gradient(var(--neon-cyan),var(--neon-cyan));
+  --brackets:
+    var(--b) top left/22px 1px no-repeat,var(--b) top left/1px 22px no-repeat,
+    var(--b) top right/22px 1px no-repeat,var(--b) top right/1px 22px no-repeat,
+    var(--b) bottom left/22px 1px no-repeat,var(--b) bottom left/1px 22px no-repeat,
+    var(--b) bottom right/22px 1px no-repeat,var(--b) bottom right/1px 22px no-repeat;
+  --scan:repeating-linear-gradient(0deg,#58eaff06 0 1px,transparent 1px 3px);
+}
+
+/* SUKHAVATI: cinema screen with brackets, scanlines and a live channel label. */
+.featured-showcase .hero-film{border-color:#58eaff40}
+.featured-showcase .hero-film:before{background:var(--brackets),repeating-linear-gradient(0deg,#00000022 0 1px,transparent 1px 3px)}
+.featured-showcase .film-top{color:var(--neon-cyan);text-shadow:0 0 10px #58eaff88}
+.featured-showcase .film-top>span:first-child::before{content:'';display:inline-block;width:6px;height:6px;margin-right:9px;border-radius:50%;background:var(--neon-red);box-shadow:0 0 10px var(--neon-red);vertical-align:1px;animation:hud-blink 1.6s steps(2,start) infinite}
+.featured-showcase .film-bottom span:not(.play-circle){color:var(--neon-red);text-shadow:0 0 10px #ff375977}
+.featured-showcase .film-bottom h2{text-shadow:-2px 0 #ff375999,2px 0 #58eaff99,0 0 30px #58eaff55}
+.featured-showcase .film-bottom .play-circle{background:#050b13aa;color:var(--neon-cyan);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);box-shadow:inset 0 0 18px #58eaff33}
+.featured-showcase .hero-film:hover .play-circle{background:var(--neon-cyan);color:#03141c}
+.featured-showcase .discipline-strip{font-family:var(--font-hud);color:#9fc3d8}
+.featured-showcase .discipline-strip b{color:var(--neon-red);text-shadow:0 0 10px #ff3759aa}
+/* The cover art already carries its title near the bottom; on narrow screens crop it away
+   so it does not double up with the live HTML title. */
+@media(max-width:700px){
+  .featured-showcase .hero-film img{height:146%;object-position:50% 0}
+}
+
+/* Universe: three protocol modules. */
+#universe .h2,#tech .h2{text-shadow:-1.5px 0 #ff37596b,1.5px 0 #58eaff6b,0 0 30px #58eaff26}
+#universe .feature-grid{counter-reset:protocol;gap:18px}
+#universe .feature{
+  position:relative;padding:26px 24px 28px;border-top:0;counter-increment:protocol;
+  background:var(--brackets),var(--scan),linear-gradient(165deg,#0c1b28f2,#060c14f7 70%);
+  box-shadow:inset 0 0 0 1px #58eaff24,inset 0 2px 0 #58eaff55;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  transition:box-shadow .35s,translate .35s var(--ease,ease);
+}
+#universe .feature:before{content:'// PROTOCOL 0' counter(protocol);display:block;font:600 9px/1 var(--font-hud);letter-spacing:.2em;color:var(--neon-red);text-shadow:0 0 10px #ff375999}
+#universe .feature h3{margin:16px 0 10px;color:#effaff;text-shadow:0 0 16px #58eaff33}
+#universe .feature:hover{translate:0 -3px;background:var(--brackets),var(--scan),linear-gradient(165deg,#0e2231f2,#060c14f7 70%);box-shadow:inset 0 0 0 1px #58eaff66,inset 0 2px 0 var(--neon-cyan),inset 0 0 44px #58eaff12}
+
+/* Tech: system modules with terminal rows. */
+#tech .stack{gap:18px}
+#tech .stack-col{
+  position:relative;padding:24px 22px 18px;border-top:0;
+  background:var(--brackets),var(--scan),linear-gradient(165deg,#0c1b28f2,#060c14f7 70%);
+  box-shadow:inset 0 0 0 1px #58eaff24;
+}
+#tech .stack-col:hover{background:var(--brackets),var(--scan),linear-gradient(165deg,#0e2231f2,#060c14f7 70%);box-shadow:inset 0 0 0 1px #58eaff55,inset 0 0 40px #58eaff10}
+#tech .stack h3{display:flex;align-items:center;gap:10px;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid #58eaff2b;font-family:var(--font-hud);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#effaff}
+#tech .stack h3::before{content:'';width:7px;height:7px;border-radius:50%;background:#4dffb0;box-shadow:0 0 10px #4dffb0}
+#tech .stack h3::after{content:'ONLINE';margin-left:auto;font:500 8px/1 var(--font-mono);letter-spacing:.2em;color:#4dffb0}
+#tech .stack li{padding:9px 6px;border-bottom:1px dashed #58eaff1f;font-family:var(--font-mono);font-size:12px;color:#a9c4d6;transition:background .2s,color .2s}
+#tech .stack li:last-child{border-bottom:0}
+#tech .stack li::before{content:'>';margin-right:10px;color:var(--neon-red)}
+#tech .stack li:hover{color:#fff;background:linear-gradient(90deg,#58eaff14,transparent 80%)}
+
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    #universe .feature,#tech .stack-col{animation:hud-boot linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  }
+}
+@media(max-width:700px){
+  #universe .feature-grid,#tech .stack{gap:14px}
+  #universe .feature{padding:22px 18px 24px}
+  #tech .stack-col{padding:20px 16px 14px}
+}
