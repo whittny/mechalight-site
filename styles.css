@@ -747,3 +747,7 @@ html{background:var(--bg-color)}body{background:linear-gradient(90deg,#b5c9db03 
 .three-reactor .hud-scene,.hero-cockpit .three-reactor .hud-scene{background:radial-gradient(circle at 56% 48%,#010206 0%,#010308 48%,transparent 82%)}
 .hud-aura{opacity:.25}
 
+/* Mobile: decorative overscan (perspective floor, full-bleed rotor) must never widen the page.
+   A wider-than-device page makes mobile browsers grow the layout viewport, so fixed bars such as
+   the hero dock slide out of view while scrolling down. Clip at the full-width wrapper instead. */
+@media(max-width:700px){html,body{overflow-x:clip}.main{overflow-x:clip}}

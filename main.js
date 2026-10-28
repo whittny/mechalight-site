@@ -561,6 +561,8 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   anchor.className='reactor-anchor';
   anchor.style.cssText='position:absolute;left:0;top:0;width:100%;height:1px;pointer-events:none;opacity:0;';
   reactor.before(anchor);
+  // Match the CSS breakpoint; innerWidth grows with the layout viewport on some mobile browsers.
+  const mobileQuery=matchMedia('(max-width:700px)');
   let docked=false,queued=false;
   function rememberOriginalScene(){
     const rect=reactor.getBoundingClientRect();
@@ -577,7 +579,7 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
     queued=false;
     const headerHeight=header.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
-    const isMobile=window.innerWidth<=700;
+    const isMobile=mobileQuery.matches;
     const heroRect=hero.getBoundingClientRect();
     const next=isMobile
       ?(docked?(window.scrollY>=170||heroRect.top<=-30):(window.scrollY>=220||heroRect.top<=-80))
