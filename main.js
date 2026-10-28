@@ -574,7 +574,8 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
     queued=false;
     const headerHeight=header.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
-    const next=hero.getBoundingClientRect().bottom<=headerHeight+24;
+    const isMobile=window.innerWidth<=700;
+    const next=isMobile?(hero.getBoundingClientRect().top+380<=headerHeight):(hero.getBoundingClientRect().bottom<=headerHeight+24);
     if(!docked)rememberOriginalScene();
     if(next===docked)return;
     docked=next;
