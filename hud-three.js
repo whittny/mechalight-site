@@ -363,12 +363,17 @@ function initHUD(renderer, host) {
   function sync(){
     cancelAnimationFrame(frame);frame=0;last=0;
     if(disposed)return;
-    if(active&&!document.hidden&&!reduce.matches&&!document.documentElement.classList.contains('motion-paused'))frame=requestAnimationFrame(tick);
+    const isDocked=document.documentElement.classList.contains('hero-is-docked');
+    if((active||isDocked)&&!document.hidden&&!reduce.matches&&!document.documentElement.classList.contains('motion-paused'))frame=requestAnimationFrame(tick);
     else render(0);
   }
   function resize(){const rect=host.getBoundingClientRect();const w=Math.max(1,rect.width),h=Math.max(1,rect.height);renderer.setSize(w,h,false);composer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();render(0);}
   const observer=new ResizeObserver(resize);observer.observe(host);
-  const visibility=new IntersectionObserver(entries=>{active=entries[0].isIntersecting;sync();});visibility.observe(host);
+  const visibility=new IntersectionObserver(entries=>{
+    const isDocked=document.documentElement.classList.contains('hero-is-docked');
+    active=entries[0].isIntersecting||isDocked;
+    sync();
+  });visibility.observe(host);
   const state=new MutationObserver(sync);state.observe(document.documentElement,{attributes:true,attributeFilter:['class']});
   reduce.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();active=false;cancelAnimationFrame(frame);host.classList.remove('webgl-ready');});

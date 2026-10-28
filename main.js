@@ -557,7 +557,10 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   const slot=document.getElementById('dockVisual');
   const header=document.querySelector('.header');
   if(!hero||!reactor||!dock||!slot)return;
-  const home=document.createComment('Reactor home');reactor.before(home);
+  const anchor=document.createElement('div');
+  anchor.className='reactor-anchor';
+  anchor.style.cssText='position:absolute;left:0;top:0;width:100%;height:1px;pointer-events:none;opacity:0;';
+  reactor.before(anchor);
   let docked=false,queued=false;
   function rememberOriginalScene(){
     const rect=reactor.getBoundingClientRect();
@@ -575,14 +578,19 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
     const headerHeight=header.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
     const isMobile=window.innerWidth<=700;
-    const next=isMobile?(hero.getBoundingClientRect().top+380<=headerHeight):(hero.getBoundingClientRect().bottom<=headerHeight+24);
+    const next=isMobile
+      ?(anchor.getBoundingClientRect().top+380<=headerHeight)
+      :(hero.getBoundingClientRect().bottom<=headerHeight+24);
     if(!docked)rememberOriginalScene();
     if(next===docked)return;
+    const prevW=reactor.clientWidth,prevH=reactor.clientHeight;
     docked=next;
     if(docked){slot.append(reactor);dock.inert=false;}
-    else{home.after(reactor);dock.inert=true;}
+    else{anchor.after(reactor);dock.inert=true;}
     document.documentElement.classList.toggle('hero-is-docked',docked);
-    window.dispatchEvent(new Event('resize'));
+    if(reactor.clientWidth!==prevW||reactor.clientHeight!==prevH){
+      window.dispatchEvent(new Event('resize'));
+    }
   }
   function queue(){if(!queued){queued=true;requestAnimationFrame(update);}}
   window.addEventListener('scroll',queue,{passive:true});
