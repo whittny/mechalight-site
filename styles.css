@@ -735,3 +735,88 @@ html{background:var(--bg-color)}body{background:linear-gradient(90deg,#b5c9db03 
   #v2a .v2a-split .v2a-block{padding:22px 18px}
   #v2a .v2a-h3::before{font-size:9px}
 }
+
+/* ==========================================================================
+   CYBERPUNK HUD — Works: holographic cards
+   CSS only, scoped to #works; cards are still built by main.js.
+   ========================================================================== */
+#works{
+  --hud-cyan:var(--neon-cyan);
+  --hud-red:var(--neon-red);
+  --hud-line:#58eaff2b;
+  --hud-line-strong:#58eaff70;
+  --holo:linear-gradient(115deg,transparent 20%,#58eaff2e 38%,#ff37592b 50%,#c79bff26 60%,transparent 78%);
+  counter-reset:workcard;
+}
+#works .h2{text-shadow:-1.5px 0 #ff37596b,1.5px 0 #58eaff6b,0 0 30px #58eaff26}
+#works .section-head .p{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:#8fb3c9}
+#works .section-head .p::before{content:'> ';color:var(--hud-red)}
+
+/* Card frame: chamfered glass with corner brackets; the image sits inside like a screen. */
+#works .work{
+  --b:linear-gradient(var(--hud-cyan),var(--hud-cyan));
+  position:relative;display:block;padding:10px 10px 18px;counter-increment:workcard;isolation:isolate;container-type:inline-size;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  background:
+    var(--b) top left/16px 1px no-repeat,var(--b) top left/1px 16px no-repeat,
+    var(--b) bottom right/16px 1px no-repeat,var(--b) bottom right/1px 16px no-repeat,
+    repeating-linear-gradient(0deg,#58eaff05 0 1px,transparent 1px 3px),
+    linear-gradient(165deg,#0c1b28f2,#060c14f7 70%);
+  box-shadow:inset 0 0 0 1px var(--hud-line);
+  transition:transform .45s var(--ease,ease),box-shadow .35s;
+  transform-style:preserve-3d;
+}
+#works .work::before{
+  content:'REC / ' counter(workcard,decimal-leading-zero);
+  position:absolute;top:calc(10px + 62.5cqw - 28px);left:18px;z-index:3;padding:3px 8px 3px 18px;
+  font:600 9px/1.4 var(--font-hud);letter-spacing:.16em;color:#dff9ff;
+  background:radial-gradient(circle at 8px 50%,var(--hud-red) 0 3px,transparent 3.5px),#050b13cc;
+  box-shadow:inset 0 0 0 1px #58eaff40;
+}
+/* Holographic foil that slides across the whole card on hover. */
+#works .work::after{
+  content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
+  background:var(--holo);background-size:250% 100%;background-position:120% 0;
+  mix-blend-mode:screen;opacity:0;transition:opacity .35s,background-position .9s var(--ease,ease);
+}
+#works .work:hover,#works .work:focus-visible{box-shadow:inset 0 0 0 1px var(--hud-line-strong),inset 0 0 46px #58eaff14}
+#works .work:hover::after,#works .work:focus-visible::after{opacity:1;background-position:-20% 0}
+
+#works .work-visual{clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);border-color:#58eaff33}
+#works .work-visual img{transition:transform .6s var(--ease,ease),filter .45s}
+#works .work:hover .work-visual img{transform:scale(1.05);filter:saturate(1.2) contrast(1.06)}
+/* Scanlines and a cyan/red edge read the thumbnail as a live screen. */
+#works .work-visual:after{
+  transform:none;
+  background:repeating-linear-gradient(0deg,#00000026 0 1px,transparent 1px 3px),
+    linear-gradient(90deg,#ff37591f,transparent 9%,transparent 91%,#58eaff1f);
+}
+#works .work:hover .work-visual:after{transform:none}
+
+#works .work-arrow{border-radius:0;background:var(--hud-cyan);color:#03141c;box-shadow:0 0 18px #58eaff88;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%)}
+#works .work-tag{margin:16px 6px 6px;font:500 9px/1.4 var(--font-mono);letter-spacing:.16em;color:var(--hud-cyan)}
+#works .work-tag::before{content:'// ';color:var(--hud-red)}
+#works .work-title{margin:0 6px;transition:text-shadow .35s,color .35s}
+#works .work:hover .work-title{color:#fff;text-shadow:-1px 0 #ff375999,1px 0 #58eaff99,0 0 16px #58eaff55}
+#works .work-sub{margin:7px 6px 0;padding-top:8px;border-top:1px dashed var(--hud-line)}
+
+/* Gentle 3D tilt only where a real pointer hovers. */
+@media (hover:hover) and (pointer:fine){
+  #works .work:hover{transform:perspective(900px) rotateX(3deg) rotateY(-4deg) translateY(-4px)}
+}
+
+#works .archive-btn{border-radius:0;border-color:var(--hud-line-strong);font-family:var(--font-hud);font-size:11px;letter-spacing:.18em;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));box-shadow:inset 0 0 22px #58eaff14}
+#works .archive-btn:hover{background:#58eaff1a;color:#fff}
+
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    #works .work{animation:hud-boot linear both;animation-timeline:view();animation-range:entry 0% entry 50%}
+  }
+}
+@media(max-width:700px){
+  #works .work{padding:6px 6px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  #works .work::before{top:calc(6px + 62.5cqw - 22px);left:11px;padding:2px 6px 2px 14px;font-size:7px;background:radial-gradient(circle at 6px 50%,var(--hud-red) 0 2.5px,transparent 3px),#050b13cc}
+  #works .work-tag{margin:12px 4px 4px;font-size:8px}
+  #works .work-title{margin:0 4px}
+  #works .work-sub{margin:6px 4px 0;padding-top:6px}
+}
