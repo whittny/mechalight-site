@@ -589,31 +589,34 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
 @media(prefers-reduced-motion:reduce){.hero-copy h1 .neo-word:after{animation:none!important;background-position:48% 0;opacity:.3}}
 
 /* Persistent identity strip: the existing live HUD is reused, not duplicated. */
-.header{position:sticky;top:0;z-index:80;background:#060d17eb;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.hero-dock{position:fixed;top:var(--dock-header-height,82px);left:0;right:0;height:64px;z-index:75;display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,calc((100vw - 1296px)/2));background:linear-gradient(90deg,#060d17fa,#0a1624f0 70%,#060d17fa);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(55,87,114,0.45);box-shadow:0 8px 24px rgba(0,0,0,0.5);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,visibility .3s ease;pointer-events:none;overflow:hidden}
-.hero-is-docked .hero-dock{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-.dock-wordmark{display:flex;align-items:center;gap:8px;position:relative;z-index:10;font:700 15px 'Orbitron',sans-serif;letter-spacing:.02em}
-.dock-wordmark span:first-child{color:#edf2f4}
-.dock-wordmark span:last-child{color:#ff4866}
-.dock-caption{font:8px monospace;color:#7295b1;letter-spacing:.12em;position:relative;z-index:10}
-.hero-dock .dock-visual{position:absolute;right:64px;top:0;bottom:0;width:260px;overflow:hidden;pointer-events:none;mask-image:linear-gradient(90deg,transparent 0%,#000 20%,#000 80%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 20%,#000 80%,transparent 100%)}
-.hero-dock .reactor.three-reactor{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:240px!important;height:240px!important;min-height:240px!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;pointer-events:none!important}
-.hero-dock .reactor .hud-scene{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;background:transparent!important;mask-image:none!important;-webkit-mask-image:none!important;overflow:hidden!important}
-.hero-dock .reactor .hud-webgl{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;mix-blend-mode:screen}
-.hero-dock .reactor-label,.hero-dock .reactor-footer,.hero-dock .hud-callout,.hero-dock .hud-side-label{display:none!important}
-.dock-back{position:relative;z-index:10;color:#a3bed2;font-size:16px;padding:6px 12px;background:rgba(6,16,27,0.7);border:1px solid rgba(57,103,140,0.5);border-radius:3px}
-.hero-is-docked{scroll-padding-top:160px}
-.hero-is-docked .section{scroll-margin-top:0}
-@media(max-width:700px){
-  .hero-dock{height:52px;padding:0 4%}
-  .dock-wordmark{font-size:12px;gap:6px}
-  .dock-caption{display:none}
-  .hero-dock .dock-visual{right:48px;width:160px;mask-image:linear-gradient(90deg,transparent 0%,#000 25%,#000 85%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 25%,#000 85%,transparent 100%)}
-  .hero-dock .reactor.three-reactor{width:180px!important;height:180px!important;min-height:180px!important}
-  .dock-back{font-size:14px;padding:4px 8px}
-  .hero-is-docked{scroll-padding-top:130px}
-}
+.header{position:sticky;top:0;z-index:80;background:#060d17eb;backdrop-filter:blur(16px)}
+.hero-dock{position:fixed;top:var(--dock-header-height,82px);left:0;right:0;height:76px;z-index:70;display:flex;align-items:center;gap:32px;padding:0 max(5vw,calc((100vw - 1296px)/2));background:linear-gradient(90deg,#050c16f5,#091424e8 70%,#050c16f5);backdrop-filter:blur(18px);border-bottom:1px solid #37577277;box-shadow:0 10px 35px #0004;overflow:clip;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s,transform .3s,visibility .3s;pointer-events:none}
+.hero-is-docked .hero-dock{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.dock-wordmark{display:flex;gap:10px;position:relative;z-index:4;font:700 clamp(15px,2vw,23px) 'Orbitron',sans-serif;letter-spacing:.01em}.dock-wordmark span:first-child{color:#e1e7ee;text-shadow:0 1px 0 #71849a}.dock-wordmark span:last-child{color:#e8c16a;text-shadow:0 1px 0 #81602a}.dock-caption{font:8px monospace;color:#7295b1;letter-spacing:.13em;z-index:3}.dock-visual{position:absolute;right:8%;top:0;bottom:0;width:390px;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 85%,transparent)}
+.hero-dock .reactor.three-reactor{position:absolute!important;inset:auto!important;top:-104px!important;left:0!important;width:390px!important;height:280px!important;margin:0!important;padding:0!important;max-width:none!important;transform:none!important;animation:none!important}
+.hero-dock .reactor .hud-scene{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;background:transparent;mask-image:none;perspective:none;overflow:clip}.hero-dock .reactor-label,.hero-dock .reactor-footer,.hero-dock .hud-callout,.hero-dock .hud-side-label{display:none!important}.hero-dock .hud-webgl{mix-blend-mode:screen}
+.dock-back{position:absolute;right:5%;z-index:4;color:#a3bed2;font-size:20px;padding:6px 12px}.hero-is-docked{scroll-padding-top:180px}.hero-is-docked .section{scroll-margin-top:0}
+@media(max-width:700px){.hero-dock{height:60px;padding:0 6%;gap:12px}.dock-wordmark{font-size:13px;gap:7px}.dock-caption{display:none}.dock-visual{right:0;width:210px;opacity:.8}.hero-dock .reactor.three-reactor{top:-80px!important;width:260px!important;height:220px!important}.dock-back{right:4%;font-size:17px;background:#06101b99}.hero-is-docked{scroll-padding-top:150px}}
 @media(prefers-reduced-motion:reduce){.hero-dock{transition:none}}
+
+/* Oversized live rotor cropped by the slim dock, rather than a small full disc. */
+.hero-dock .dock-visual{right:3%;width:min(68vw,980px);mask-image:linear-gradient(90deg,transparent,#000 25%,#000 88%,transparent)}
+.hero-dock .reactor.three-reactor{top:-338px!important;left:0!important;width:980px!important;height:740px!important}
+.hero-dock .dock-wordmark,.hero-dock .dock-caption{z-index:5;text-shadow:0 2px 8px #02060d,0 0 18px #02060d}
+@media(max-width:1000px) and (min-width:701px){.hero-dock .dock-visual{right:-12%;width:690px}.hero-dock .reactor.three-reactor{top:-245px!important;width:740px!important;height:550px!important}}
+@media(max-width:700px){.hero-dock .dock-visual{right:-18%;width:350px;opacity:.85;mask-image:linear-gradient(90deg,transparent,#000 40%,#000 85%,transparent)}.hero-dock .reactor.three-reactor{top:-190px!important;left:0!important;width:550px!important;height:440px!important}}
+
+/* The dock is a window into the original-size scene, not a scaled mini HUD. */
+.hero-dock .dock-visual{position:fixed;left:0;right:0;top:0;width:100%;height:100%;opacity:1;mask-image:linear-gradient(90deg,transparent 12%,#000 42%,#000 93%,transparent);pointer-events:none}
+.hero-dock .reactor.three-reactor{left:var(--original-hud-x,24vw)!important;top:var(--original-hud-top,-340px)!important;width:var(--original-hud-width,1100px)!important;height:var(--original-hud-height,740px)!important}
+@media(max-width:700px){.hero-dock .dock-visual{left:0;right:0;width:100%;opacity:.9;mask-image:linear-gradient(90deg,transparent 20%,#000 57%,#000 93%,transparent)}.hero-dock .reactor.three-reactor{left:var(--original-hud-x,-28vw)!important;top:var(--original-hud-top,-240px)!important;width:var(--original-hud-width,540px)!important;height:var(--original-hud-height,540px)!important}}
+
+/* A small shadow gap separates the cropped HUD from the scrolling content. */
+.hero-dock{overflow:visible;box-shadow:0 7px 18px #0005;border-bottom-color:#314a6255}
+.hero-dock .dock-visual{overflow:clip;clip-path:inset(0 0 0 0)}
+.hero-dock:after{content:'';position:absolute;left:0;right:0;top:100%;height:10px;pointer-events:none;background:linear-gradient(180deg,#050b13 0%,#050b13 55%,#050b13e8 80%,#050b1300 100%);border-top:1px solid #7294af12}
+.hero-is-docked{scroll-padding-top:190px}
+@media(max-width:700px){.hero-dock:after{height:8px}.hero-is-docked{scroll-padding-top:158px}}
 
 /* Exact official channel artwork, with no recoloring or substitute monogram. */
 .header .official-brand-mark{display:block;width:44px;height:44px;object-fit:contain;border-radius:50%;clip-path:none;transform:none;background:transparent;flex-shrink:0}

@@ -559,20 +559,27 @@ document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()
   if(!hero||!reactor||!dock||!slot)return;
   const home=document.createComment('Reactor home');reactor.before(home);
   let docked=false,queued=false;
+  function rememberOriginalScene(){
+    const rect=reactor.getBoundingClientRect();
+    const scene=reactor.querySelector('.hud-scene');
+    const sceneRect=scene?.getBoundingClientRect();
+    if(!sceneRect||sceneRect.width<1||sceneRect.height<1)return;
+    dock.style.setProperty('--original-hud-width',scene.clientWidth+'px');
+    dock.style.setProperty('--original-hud-height',scene.clientHeight+'px');
+    dock.style.setProperty('--original-hud-x',rect.left+'px');
+    // Keep the original large disc centered behind the narrow viewing window.
+    dock.style.setProperty('--original-hud-top',(38-scene.clientHeight*.5)+'px');
+  }
   function update(){
     queued=false;
-    const headerHeight=header?header.getBoundingClientRect().height:72;
+    const headerHeight=header.getBoundingClientRect().height;
     document.documentElement.style.setProperty('--dock-header-height',headerHeight+'px');
     const next=hero.getBoundingClientRect().bottom<=headerHeight+24;
+    if(!docked)rememberOriginalScene();
     if(next===docked)return;
     docked=next;
-    if(docked){
-      slot.append(reactor);
-      dock.inert=false;
-    }else{
-      home.after(reactor);
-      dock.inert=true;
-    }
+    if(docked){slot.append(reactor);dock.inert=false;}
+    else{home.after(reactor);dock.inert=true;}
     document.documentElement.classList.toggle('hero-is-docked',docked);
     window.dispatchEvent(new Event('resize'));
   }
