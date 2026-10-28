@@ -422,7 +422,7 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   .hero-cockpit .three-reactor{
     position:absolute!important;
     left:50%!important;
-    top:78px!important;
+    top:58px!important;
     transform:translateX(-50%)!important;
     width:100vw!important;
     max-width:440px!important;
@@ -504,14 +504,12 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     z-index:6;
     font-size:clamp(50px,13.8vw,68px);
     line-height:1.02;
-    margin:0 auto 286px!important;
+    margin:0 auto 268px!important;
     letter-spacing:.02em;
   }
-  .hero-copy .title-code{
-    display:inline-block;
-    margin:4px auto 0;
-    font-size:11px;
-    color:#d8b888;
+  .hero-copy .title-code,
+  .title-code{
+    display:none!important;
   }
   .hero-copy .lead{
     max-width:330px;
