@@ -407,12 +407,10 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
 @media(max-width:700px){
   .hero-cockpit{
     position:relative!important;
-    min-height:calc(100svh - 72px)!important;
     min-height:580px!important;
-    padding:24px 0 28px;
+    padding:20px 0 28px;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
     text-align:center;
     overflow:visible!important;
@@ -421,12 +419,12 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   .hero-cockpit .three-reactor{
     position:absolute!important;
     left:50%!important;
-    top:50%!important;
-    transform:translate(-50%,-50%)!important;
+    top:90px!important;
+    transform:translateX(-50%)!important;
     width:100vw!important;
-    max-width:480px!important;
-    height:480px!important;
-    min-height:480px!important;
+    max-width:440px!important;
+    height:360px!important;
+    min-height:360px!important;
     margin:0!important;
     z-index:1!important;
     pointer-events:none!important;
@@ -440,8 +438,8 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     height:100%;
     border-radius:0;
     background:transparent;
-    -webkit-mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 60%,rgba(0,0,0,0) 95%);
-    mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 60%,rgba(0,0,0,0) 95%);
+    -webkit-mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 64%,rgba(0,0,0,0) 95%);
+    mask-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,1) 64%,rgba(0,0,0,0) 95%);
   }
   .hero-cockpit .three-reactor .reactor-label,
   .hero-cockpit .hud-callout-top,
@@ -450,7 +448,7 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
   }
   .hero-cockpit .three-reactor .reactor-footer{
     position:absolute;
-    bottom:10px;
+    bottom:6px;
     right:14px;
     left:auto;
     z-index:10;
@@ -491,19 +489,19 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     pointer-events:auto;
   }
   .hero-copy .kicker{
-    font-size:11px;
+    font-size:10px;
     letter-spacing:.08em;
     max-width:95%;
-    margin:0 auto 12px;
+    margin:0 auto 10px;
     color:#a4c2d6;
     text-shadow:0 2px 8px #000;
   }
   .hero-copy h1{
     position:relative;
     z-index:6;
-    font-size:clamp(52px,14.5vw,74px);
-    line-height:1.05;
-    margin:0 auto 8px;
+    font-size:clamp(50px,13.8vw,70px);
+    line-height:1.03;
+    margin:0 auto 195px;
     letter-spacing:.02em;
   }
   .hero-copy .title-code{
@@ -516,14 +514,14 @@ h1{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(54px,6.7vw,
     max-width:320px;
     font-size:12px;
     line-height:1.55;
-    margin:8px auto 18px;
+    margin:0 auto 16px;
     color:#b8cee0;
     text-shadow:0 2px 8px #000,0 0 16px #000;
   }
   .hero-bottom{
     justify-content:center;
     gap:12px;
-    margin:0 auto 18px;
+    margin:0 auto 16px;
     width:100%;
   }
   .hero-copy .system-readout{
